@@ -1,0 +1,28 @@
+{
+    "card-title": "Hi, i'm Luiz Gustavo",
+    "card-subtitle": "Science Computer | FullStack Developer",
+
+    "section-title-1": "About Me",
+    "section-title-2": "Skills",
+    "section-title-3": "Highlight Projects",
+    "section-title-4": "Contact Me",
+    "section-text-1": "Science Computer student focused on Front-End development, building modern, responsive and accessible web applications. <br> I design and develop interfaces using JavaScript and PHP, prioritizing usability, responsiveness and intuitive user experience.",
+    "education-title-1": "Escola Educação Criativa",
+    "education-subtitle-1": "Completed High School",
+    "education-title-2": "Universidade Federal de Lavras (UFLA)",
+    "education-subtitle-2": "Bachelor's Degree in Computer Science - In progress",
+
+    "project-title-1": "Projeto Açaí 2.0",
+    "project-description-1": "Complete e-commerce plataform, with user management, sales control and administrative panel supporting CRUD operations. Application developed entirely using PHP, ensuring organization and security at data flow. With each order placed, the transaction data is automatically recorded in an online spreadsheet, including client data, the acquired products and buying date, making it easier to track and manage sales.",
+    "project-title-2": "AnimeVault",
+    "project-description-2": "Demonstration website for a Discord bot that allows users to explore, search, and receive real-time anime recommendations using the Jikan API (MyAnimeList). The web application also includes a playoff-style tournament feature, currently under development, highlighting ongoing work with dynamic logic and external API integration.",
+    "project-title-3": "ToDo List",
+    "project-description-3": "Online To-Do List featuring filters and dark mode, developed using JavaScript. The application retrieves data from a JSON file responsible for storing task information. It implements a simple CRUD system, allowing users to create, view, update, and delete tasks, as well as manage their status between completed and in progress.",
+
+    "web-page": "Web Page",
+    "project-repository": "Repository",
+
+    "contact-input-1": "Email address: ",
+    "contact-input-2": "Message: ",
+    "contact-submit-btn": "Submit"
+}
