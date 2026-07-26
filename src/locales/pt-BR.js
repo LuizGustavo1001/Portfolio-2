@@ -63,7 +63,7 @@ export default {
         }
     },
     home: {
-        role: "Desenvolvedor Web <strong>Full-Stack</strong>",
+        role: "Desenvolvedor Web {role}",
     },
     aboutMe: {
         title: {

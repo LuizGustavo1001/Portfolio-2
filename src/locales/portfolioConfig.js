@@ -23,70 +23,32 @@ export const personalLinks = {
     }
 }
 
-/*
-export const personalLinks = [
-    {
-        id: "mail",
-        href: "mailto:gustavw1001@gmail.com",
-        icon: icons.mailFilled,
-        value: "E-mail"
+export const projects = {
+    dictionary: {
+      href: "/src/assets/images/dicionario.png",
+      skills: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
+      repository: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
+      demo: ""
     },
-    {
-        id: "resume",
-        href: "",
-        icon: icons.documentFilled,
-        value: "Resume"
-    },
-    {
-        id: "github",
-        href: "https://github.com/LuizGustavo1001",
-        icon: icons.github,
-        value: "LuizGustavo1001"
-    },
-    {
-        id: "instagram",
-        href: "https://www.instagram.com/luiz_g1001/",
-        icon: icons.instagram,
-        value: "LuizGustavo1001"
-    },
-    {
-        id: "linkedin",
-        href: "https://www.linkedin.com/in/luizgustavo1001/",
-        icon: icons.linkedin,
-        value: "LinkedIn"
-    }
-]
-*/
-export const projects = [
-    {
-        id: "dictionary",
-        href: "/src/assets/images/dicionario.png",
-        skills: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
-        github: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
-        demo: ""
-    },
-    {
-        id: "acai",
+    acai: {
         href: "/src/assets/images/acai.webp",
         skills: ["PHP OOP", "MySQL", "HTML5", "CSS3", "Cloudinary API", "Composer", "Google Cloud API", "Figma"],
-        github: "https://github.com/LuizGustavo1001/Projeto-Acai-2.0",
+        repository: "https://github.com/LuizGustavo1001/Projeto-Acai-2.0",
         demo: ""
     },
-    {
-        id: "todo",
+    todo: {
         href: "/src/assets/images/todo.webp",
         skills: ["JavaScript", "JSON", "Node.js", "Scrapping", "CRUD"],
-        github: "https://github.com/LuizGustavo1001/TODO-WebPage-JS",
+        repository: "https://github.com/LuizGustavo1001/TODO-WebPage-JS",
         demo: "https://vercel-todo-list-js.vercel.app/"
     },
-    {
-        id: "animeList",
+    animeList: {
         href: "/src/assets/images/cpp.webp",
         skills: ["C++", "CSV Scrapping"],
-        github: "https://github.com/LuizGustavo1001/Anime-Catalog-in-cpp",
+        repository: "https://github.com/LuizGustavo1001/Anime-Catalog-in-cpp",
         demo: ""
     }
-]
+}
 
 export const aboutMe = {
     sections: [
@@ -96,9 +58,9 @@ export const aboutMe = {
             type: "text"
         },
         {
-          id: "skills",
-          icon: icons.code,
-          type: "grid-list"
+            id: "skills",
+            icon: icons.code,
+            type: "grid-list"
         },
         {
             id: "background",
@@ -215,3 +177,19 @@ export const sidebar = [
         ]
     }
 ]
+
+export const home = {
+    btns: [
+        {
+            id: "github",
+            type: "first"
+        },
+        {
+            id: "resume"
+        },
+        {
+            id: "linkedin",
+            type: "last"
+        }
+    ]
+}

@@ -1,24 +1,30 @@
 <template>
-  <aside class="relative sidebar flex-05 flex-column">
+  <aside class="sidebar flex-05 flex-column">
     <div class="flex-grow-1 flex-05 flex-column" style="gap: 2em;">
       <nav v-for="nav in sidebar" :key="nav.id" class="flex-05 flex-column">
         <h2 class="title"> {{ $t(`sidebar.sections.${nav.id}.title`) }}</h2>
 
         <ul class="flex-05 flex-column gap-1" style="gap: 1em;">
           <li v-for="item in nav.items">
-            <template v-if="$t(`personalLinks.${item.id}`) !== `personalLinks.${item.id}`">
-              <a :href="personalLinks[item.id].href" class="btn link-btn" rel="external" target="_blank">
+
+            <template v-if="item.id in personalLinks" :key="item.id">
+              <a :href="personalLinks[item.id].href"
+                 class="btn link-btn"
+                 :class="item.id === 'resume' ? 'btn-reverse-clr' : ''"
+                 rel="external"
+                 target="_blank">
                 <div class="flex-05 align-center flex-grow-1">
                   <i class="icon" v-html="personalLinks[item.id].icon"></i>
                   <p>{{ $t(`personalLinks.${item.id}`) }}</p>
                 </div>
-                <i class="icon" v-html="icons.externalLink"></i>
+                <i class="icon" v-html="icons.externalLink" style="--svg-width: 15px"></i>
               </a>
             </template>
 
             <template v-else-if="item.id === 'toggleLanguage'">
               <button class="btn align-center" @click="toggleLang">
                 <i class="icon" v-html="icons.translate"></i>
+
                 <span v-html="$t(`sidebar.language`)"></span>
               </button>
             </template>
@@ -26,6 +32,7 @@
             <template v-else>
               <button @click="toggleTheme" class="btn align-center">
                 <i class="icon" v-html="icons.moonFilled"></i>
+
                 <span v-html="$t(`sidebar.${props.theme}`)"></span>
               </button>
             </template>
@@ -45,7 +52,7 @@
     width: 450px;
     max-width: 65dvw;
 
-    padding: 1em;
+    padding: 2em 1em 1em 1em;
 
     background: var(--beige-100);
     z-index: 3;

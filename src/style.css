@@ -38,10 +38,11 @@
 body{
     background: var(--beige-100);
     color: var(--brown-800);
+    min-height: 100dvh;
 }
 
-span{
-    text-decoration-thickness: thin;
+svg{
+    width: 20px;
 }
 
 li{
@@ -52,14 +53,38 @@ a{
     color: var(--brown-800);
 }
 
+
 /* GENERIC ELEMENTS */
+.main-section{
+    min-height: calc(100dvh - 100px);
+}
+
 .title{
     font-family: var(--font-title);
 }
 
+.icon{
+    display: inline-flex;
+    width: fit-content;
+    height: fit-content;
+    flex-shrink: 0;
+}
+.icon{
+    width: var(--size, 20px);
+}
+
+.icon-wrapper{
+    display: inline-flex;
+}
+.icon-wrapper svg{
+    width: var(--size, 20px);
+}
+
 .btn{
     display: flex;
+    align-items: center;
     gap: 0.5em;
+
     border: none;
     outline: none;
     cursor: pointer;
@@ -77,59 +102,34 @@ a{
     background: var(--beige-200);
 }
 .btn:focus-visible{
-    outline: 2px solid var(--beige-300);
+    outline: 4px double var(--beige-400);
+    outline-offset: 2px;
+}
+
+.btn-reverse-clr{
+    background: var(--brown-800);
+    color: var(--beige-100);
+}
+.btn-reverse-clr:hover{
+    background: var(--brown-700)
+}
+
+.icon-btn{
+    align-items: center;
+    justify-content: center;
 }
 
 @media(min-width: 1024px){
     .btn:active{
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
 }
-
-
-.btn img{
-    width: var(--size, 25px);
-}
-
-
-
-/* HEADER */
-header{
-    position: relative;
-    padding: 0.5em;
-    box-shadow: 0 4px 10px var(--light-shadow);
-}
-
-header::before{
-    content: '';
-    position: absolute;
-    inset: 0;
-
-    background: var(--beige-100);
-    opacity: 0.5;
-    z-index: -1;
-}
-
-header img{
-    width: 50px;
-    border-radius: 8px;
-}
-
-@media(min-width: 1024px){
-    header{
-        padding: 1em;
-    }
-}
-
-.icon{
-    display: inline-flex;
-    width: fit-content;
-    height: fit-content;
-}
-
 
 .light-weight{
     font-weight: 300;
+}
+.medium-weight{
+    font-weight: 500;
 }
 
 .text-center{
@@ -147,6 +147,10 @@ header img{
 .flex-05{
     display: flex;
     gap: 0.5em;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
 }
 
 .flex-column{
@@ -172,29 +176,4 @@ header img{
     border-radius: 50%;
 }
 
-.medium-weight{
-    font-weight: 500;
-}
 
-#home h1{
-    text-transform: uppercase;
-    font-weight: 900;
-}
-
-.btn-link:focus-visible{
-    outline: 3px double black;
-    outline-offset: 2px;
-    
-}
-
-section .section-container{
-    max-width: 1500px;
-}
-
-
-.stand-by-container{
-    width: 100dvw;
-    height: 100dvh;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.377);
-}

@@ -5,6 +5,8 @@
   import Overlay from "./components/overlay.vue";
   import Sidebar from "./components/sidebar.vue";
   import Header from "./components/header.vue";
+  import Home from "./components/home.vue";
+  import ActionButton from "./components/actionButton.vue";
 
   const { locale } = useI18n()
 
@@ -89,7 +91,6 @@
   onUnmounted(() => {
     window.removeEventListener('click', handleClickOutside)
   })
-
 </script>
 
 <template>
@@ -103,6 +104,11 @@
   />
 
   <Header @toggle-aside="handleToggleAside"/>
+
+  <main>
+    <Home/>
+
+  </main>
 
   <!-- Empty State Container -->
   <!--
