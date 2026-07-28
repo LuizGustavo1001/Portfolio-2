@@ -1,0 +1,271 @@
+<template>
+  <section class="main-section flex-05 justify-center">
+    <div class="container flex-05 justify-center translucent">
+      <div class="container-body w-full">
+        <nav class="sidebar flex-05 flex-column" role="navigation" aria-label="about me main navigation" style="gap: 1em;">
+          <div class="flex-05 flex-column">
+            <div class="flex-05 align-center">
+              <div class="flex-05 align-center flex-grow-1">
+                <div class="dot" style="--color: lightgreen"></div>
+                <div class="dot" style="--color: yellow"></div>
+                <div class="dot"></div>
+              </div>
+              <Icon :icon="icons.userIdFilled"/>
+            </div>
+            <h1 class="line-overflow">{{ $t(`aboutMe.title.medium`) }} <strong>{{ $t(`aboutMe.title.bold`) }} </strong>.</h1>
+          </div>
+
+          <menu v-if="aboutMe.sections" class="menu">
+            <li v-for="item in aboutMe.sections"
+                :key="item.id"
+                class="menu-item flex-05 align-center item medium-weight"
+                :class="item.id === selectedItem ? 'active' : undefined" :data-id="item.id"
+                @click="toggleSelected(item.id)"
+            >
+              <div class="highlight-bar"></div>
+
+              <Icon :icon="item.icon"/>
+
+              <p class="flex-grow-1">{{ $t(`aboutMe.sections.${item.id}.title`) }}</p>
+            </li>
+          </menu>
+        </nav>
+
+        <div class="content-panel flex-05 flex-column flex-grow-1">
+          <div v-for="section in aboutMe.sections"
+                :key="section.id"
+                v-show="section.id === selectedItem"
+                class="flex-05 flex-column content-panel-animation" style="gap: 1.5em; overflow: hidden"
+          >
+            <h2>{{ $t(`aboutMe.sections.${section.id}.title`) }}</h2>
+            <div class="content flex-grow-1"
+                  :class="[
+                     section.type === 'grid-list' ? 'grid-list' : undefined,
+                     section.type === 'text' ? ['flex-05', 'flex-column'] : undefined,
+                     section.type === 'regular-list' ? ['flex-05', 'flex-column'] : undefined
+                  ]"
+            >
+              <template v-if="section.type === 'text'">
+                <template v-for="paragraph in $tm(`aboutMe.sections.${section.id}.content.paragraphs`)" :key="paragraph.tag">
+                  <component :is="paragraph.tag ?? 'p'" :class="paragraph.classes ?? ''">
+                    {{ paragraph.content ?? '' }}
+                  </component>
+                </template>
+              </template>
+
+              <template v-else-if="section.type === 'grid-list'">
+                <div v-for="skill in skills" :key="skill.id" class="grid-item flex-05 align-center">
+                  <img :src="skill.icon" :alt="skill.id">
+
+                  <div class="flex-05 flex-column" style="gap: 0;">
+                    <h3>{{ skill.name }}</h3>
+                    <p>{{ $t(`skills.content.${skill.id}.category`) }}</p>
+                  </div>
+                </div>
+              </template>
+
+              <template v-else-if="section.type === 'regular-list'">
+                <div v-for="item in section.content" :key="item.id" class="flex-05 align-center">
+                  <div class="vertical-line"></div>
+
+                  <div class="flex-05 flex-column" style="gap: 0">
+                    <h3>{{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.title`) }}</h3>
+                    <p class="text-muted">
+                      {{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.subtitle`) }}
+
+                      <span v-if="$t(`aboutMe.sections.${section.id}.content.${item.id}.period`)">
+                        • <em>({{ $t(`aboutMe.sections.${section.id}.content.${item.id}.period`) }})</em>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+  .main-section{
+    padding-block: 3em;
+    animation: fade-in-upper 1s cubic-bezier(.45,-0.04,0,.95);
+  }
+
+  .container{
+    width: calc(100dvw - 1em);
+    max-width: 1500px;
+    height: 100dvh;
+    max-height: 850px;
+
+    padding: 2em 1em;
+
+    background: radial-gradient(transparent, var(--transparent-30)), url("/src/assets/images/paint04.webp") no-repeat center center ;
+    background-size: cover;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
+    border-radius: 16px;
+  }
+
+  .container-body{
+    padding: 1em;
+    max-width: 1200px;
+
+    background: radial-gradient(transparent, var(--transparent-30) 90%);
+    border: 2px solid var(--transparent-border-30);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .sidebar{
+    min-height: 0;
+    max-height: 100%;
+  }
+  .sidebar h1{
+    font-weight: 500;
+    border-bottom: 1px solid var(--transparent-border-30);
+  }
+
+  .menu{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+    overflow: scroll;
+  }
+
+  .menu-item{
+    padding: 0.6em 0.6em 0.6em 0;
+    color: var(--grey);
+    border-radius: 4px;
+
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .menu-item.active,
+  .menu-item:hover{
+    background: var(--transparent-border-20);
+    color: var(--white);
+  }
+  .menu-item.active .highlight-bar{
+    opacity: 1;
+  }
+
+  .content-panel{
+    padding: 1em;
+    background: var(--transparent-30);
+    border-radius: 16px;
+
+    max-height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+  .content-panel h2{
+    font-size: clamp(1.5em, 3dvw, 2em);
+  }
+  
+  .content-panel-animation{
+    animation: fade-in 0.5s ease;
+  }
+
+  .content{
+    overflow: auto;
+  }
+  .content h3{
+    font-size: 1em;
+  }
+  .content p{
+    font-size: 0.9em;
+  }
+
+
+  .highlight-bar{
+    width: 4px;
+    height: 100%;
+
+    background: var(--white);
+    border-radius: 0 16px 16px 0;
+    opacity: 0;
+  }
+
+  .grid-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
+  }
+  .grid-item{
+    background: var(--transparent-border-20);
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  .grid-item h3{
+    font-size: 0.9em;
+  }
+  .grid-item p{
+    font-size: 0.75em;
+  }
+
+  @media(min-width: 1024px){
+    .container{
+      border-radius: 32px;
+      width: calc(100dvw - 3em);
+      height: calc(100dvh - 200px);
+      max-height: 900px;
+    }
+
+    .container-body{
+      display: grid;
+      grid-template-columns: 300px 1fr;
+    }
+
+    .menu{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-panel{
+      padding: 2em;
+    }
+  }
+
+  @keyframes fade-in{
+    from{
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-upper{
+    from{
+      opacity: 0;
+      transform: translateY(10dvh) scale(0);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>
+
+<script setup>
+  import { icons } from "/src/locales/icons.js"
+  import { aboutMe, skills } from "/src/locales/portfolioConfig.js"
+  import { ref } from "vue"
+  import Icon from "../icon.vue"
+
+  const selectedItem = ref(localStorage.getItem("selectedItemAboutMe") ?? aboutMe.sections[0].id)
+
+  const toggleSelected = (newValue) => {
+    localStorage.setItem("selectedItemAboutMe", newValue)
+    selectedItem.value = newValue
+  }
+</script>

@@ -75,39 +75,65 @@ export default {
                 title: "Professional Profile",
                 content: {
                     paragraphs: [
-                        "Full-Stack Developer, i build API's with REST architecture aiming, mainly, integrate web systems using Node.js and PHP with databases",
-                        "I develop interfaces with intuitive, responsive and friendly experiences in mind for all different users profile. Always planning codes for reuse and for ease of maintenance",
-                        "I have a strong interest in design in general and in modern Front-End Frameworks, such as Vue.js"
+                        {
+                            tag: "p",
+                            classes: "",
+                            content: "Full-Stack Developer, i build API's with REST architecture aiming, mainly, integrate web systems using Node.js and PHP with databases."
+                        },
+                        {
+                            tag: "p",
+                            classes:  [],
+                            content: "I develop interfaces with intuitive, responsive and friendly experiences in mind for all different users profile. Always planning codes for reuse and for ease of maintenance.",
+                        },
+                        {
+                            tag: "p",
+                            classes: "",
+                            content: "I have a strong interest in design in general and in modern Front-End Frameworks, such as Vue.js."
+                        }
                     ]
                 }
             },
-            background: {
-                title: "Background"
+            skills:{
+              title: "Skills"
+            },
+            backgrounds: {
+                title: "Background",
+                content: {
+                    ufla: {
+                        title: "Bachelor's degree in Computer Science",
+                        subtitle: "Universidade Federal de Lavras (UFLA)",
+                        period: "2024 - Currently",
+                        description: ""
+                    }
+                }
             },
             experiences: {
                 title: "Experiences",
-                content: [
-                    {
+                content: {
+                    project01: {
                         title: "Full-Stack Development",
                         subtitle: "Project/Enterprise",
                         period: "2023 - Now",
                         description: "Description here"
                     }
-                ]
-
+                }
             },
             languages: {
                 title: "Languages",
-                content: [
-                    {
+                content: {
+                    ptbr: {
                         title: "Portuguese",
-                        subtitle: "Native"
+                        subtitle: "Native",
+                        period: "",
+                        description: ""
                     },
-                    {
+                    en: {
                         title: "English",
                         subtitle: "Advanced",
+                        period: "",
+                        description: ""
                     }
-                ]
+                }
             }
         }
     },
@@ -127,15 +153,31 @@ export default {
     },
     sidebar: {
         resume: "View Resume",
-        language: "Languange - <strong>English</strong>",
-        lightTheme: "Theme - <strong>Light</strong>",
-        darkTheme: "Theme - <strong>Dark</strong>",
+        language: "Languange - English",
+        lightTheme: "Theme - Light",
+        darkTheme: "Theme - Dark",
         sections: {
             social: {
                 title: "Social Media"
             },
             others: {
                 title: "Others"
+            }
+        }
+    },
+    navbar: {
+        items: {
+            home: {
+                label: "Home"
+            },
+            aboutMe: {
+                label: "About Me",
+            },
+            projects: {
+                label: "Projects",
+            },
+            contact:{
+                label: "Contact",
             }
         }
     }

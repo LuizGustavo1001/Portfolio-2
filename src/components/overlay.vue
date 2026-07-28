@@ -8,7 +8,7 @@
     inset: 0;
     background: var(--transparent-30);
 
-    z-index: 2;
+    z-index: 3;
 
     display: none;
   }

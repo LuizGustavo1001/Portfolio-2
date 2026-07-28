@@ -1,22 +1,8 @@
-<svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_778_1510)">
-<rect x="10" y="10" width="37" height="37" rx="8" fill="white" shape-rendering="crispEdges"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 28.5C28.5 26.498 30.123 24.875 32.125 24.875C34.127 24.875 35.75 26.498 35.75 28.5C35.75 30.502 34.127 32.125 32.125 32.125C30.123 32.125 28.5 30.502 28.5 28.5Z" fill="#1ABCFE"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M21.25 35.75C21.25 33.748 22.873 32.125 24.875 32.125H28.5V35.75C28.5 37.752 26.877 39.375 24.875 39.375C22.873 39.375 21.25 37.752 21.25 35.75Z" fill="#0ACF83"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 17.625V24.875H32.125C34.127 24.875 35.75 23.252 35.75 21.25C35.75 19.248 34.127 17.625 32.125 17.625H28.5Z" fill="#FF7262"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M21.25 21.25C21.25 23.252 22.873 24.875 24.875 24.875H28.5V17.625H24.875C22.873 17.625 21.25 19.248 21.25 21.25Z" fill="#F24E1E"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M21.25 28.5C21.25 30.502 22.873 32.125 24.875 32.125H28.5V24.875H24.875C22.873 24.875 21.25 26.498 21.25 28.5Z" fill="#A259FF"/>
-</g>
-<defs>
-<filter id="filter0_d_778_1510" x="0" y="0" width="57" height="57" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_778_1510"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_778_1510" result="shape"/>
-</filter>
-</defs>
+<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="37" height="37" rx="4" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 18.5C18.5 16.498 20.123 14.875 22.125 14.875C24.127 14.875 25.75 16.498 25.75 18.5C25.75 20.502 24.127 22.125 22.125 22.125C20.123 22.125 18.5 20.502 18.5 18.5Z" fill="#1ABCFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 25.75C11.25 23.748 12.873 22.125 14.875 22.125H18.5V25.75C18.5 27.752 16.877 29.375 14.875 29.375C12.873 29.375 11.25 27.752 11.25 25.75Z" fill="#0ACF83"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 7.625V14.875H22.125C24.127 14.875 25.75 13.252 25.75 11.25C25.75 9.24797 24.127 7.625 22.125 7.625H18.5Z" fill="#FF7262"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 11.25C11.25 13.252 12.873 14.875 14.875 14.875H18.5V7.625H14.875C12.873 7.625 11.25 9.24797 11.25 11.25Z" fill="#F24E1E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 18.5C11.25 20.502 12.873 22.125 14.875 22.125H18.5V14.875H14.875C12.873 14.875 11.25 16.498 11.25 18.5Z" fill="#A259FF"/>
 </svg>

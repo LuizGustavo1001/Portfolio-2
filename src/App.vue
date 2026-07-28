@@ -1,16 +1,23 @@
 <script setup>
-  import {ref, watch, onMounted, onUnmounted} from "vue"
-  import { icons } from "/src/locales/icons.js"
+  import { ref, watch, onMounted, onUnmounted } from "vue"
   import { useI18n } from 'vue-i18n'
-  import Overlay from "./components/overlay.vue";
-  import Sidebar from "./components/sidebar.vue";
-  import Header from "./components/header.vue";
-  import Home from "./components/home.vue";
-  import ActionButton from "./components/actionButton.vue";
+  import { icons } from './locales/icons'
 
   const { locale } = useI18n()
 
-  /* toggle language */
+  // Components
+  import Overlay from "./components/overlay.vue"
+  import Sidebar from "./components/sidebar.vue"
+  import Header from "./components/sections/header.vue"
+  import Home from "./components/sections/home.vue"
+  import NavBar from "./components/navBar.vue"
+  import AboutMe from "./components/sections/aboutMe.vue"
+  import Projects from "./components/sections/projects.vue"
+  import Contact from "./components/sections/contact.vue"
+  import Icon from "./components/icon.vue";
+
+
+  // Toggle language
   const getInitLang = () => {
     const savedLang = localStorage.getItem("lang")
     if(savedLang) return savedLang
@@ -29,7 +36,8 @@
     localStorage.setItem("lang", newLang)
   }
 
-  /* toggle theme */
+
+  // Toggle theme
   const getInitTheme = () => {
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) return savedTheme
@@ -59,16 +67,7 @@
   }
 
 
-  const reloadPage = () => {
-    window.location.reload()
-  }
-
-  const getImageUrl = (path) => {
-    return new URL(path, import.meta.url).href
-  }
-
-
-  /* toggle aside */
+  // Toggle aside
   const asideIsOpen = ref(false)
 
   const handleToggleAside = () => {
@@ -84,6 +83,16 @@
     }
   }
 
+
+  // Others
+  const reloadPage = () => {
+    window.location.reload()
+  }
+
+  const getImageUrl = (path) => {
+    return new URL(path, import.meta.url).href
+  }
+
   onMounted(() => {
     window.addEventListener('click', handleClickOutside)
   })
@@ -91,10 +100,13 @@
   onUnmounted(() => {
     window.removeEventListener('click', handleClickOutside)
   })
+
 </script>
 
 <template>
   <Overlay :class="asideIsOpen ? 'active' : ''"/>
+
+  <NavBar/>
 
   <Sidebar
       @toggle-language="handleToggleLanguage"
@@ -106,9 +118,13 @@
   <Header @toggle-aside="handleToggleAside"/>
 
   <main>
-    <Home/>
-
+    <Home id="home"/>
+    <AboutMe id="aboutMe"/>
+    <Projects id="projects"/>
+    <Contact id="contact"/>
   </main>
+
+  <footer></footer>
 
   <!-- Empty State Container -->
   <!--

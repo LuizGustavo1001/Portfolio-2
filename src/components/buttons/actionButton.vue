@@ -12,7 +12,7 @@
     <span class="btn-content">
       <!-- Left Icon -->
       <slot name="leftIcon">
-        <i class="icon-wrapper icon-left" aria-hidden="true" v-if="leftIcon" v-html="leftIcon"></i>
+        <Icon v-if="leftIcon" :icon="leftIcon" class="icon-left" aria-hidden="true" />
       </slot>
 
       <!-- Text -->
@@ -22,7 +22,7 @@
 
       <!-- Right Icon -->
       <slot name="rightIcon">
-        <i class="icon-wrapper icon-right" aria-hidden="true" v-if="rightIcon" v-html="rightIcon"></i>
+        <Icon v-if="rightIcon" :icon="rightIcon" class="icon-right" aria-hidden="true" />
       </slot>
     </span>
   </component>
@@ -39,7 +39,7 @@
     justify-content: center;
 
     padding: 0.85em 1.25em;
-    border-radius: 8px;
+    border-radius: 12px;
     border: none;
 
     background: var(--brown-800);
@@ -62,35 +62,35 @@
     will-change: transform;
   }
 
-  .icon-wrapper{
-    display: inline-flex;
-    width: fit-content;
-    height: fit-content;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-  }
-
   .icon-right{
     margin-right: -1.8em;
     opacity: 0;
     filter: blur(5px);
   }
 
-  .action-btn:hover .btn-content,
-  .action-btn:active .btn-content{
-    transform: translateX(-1.8em);
+  @media(min-width: 600px){ /* animations not available for mobile */
+    .action-btn:hover .btn-content,
+    .action-btn:active .btn-content{
+      transform: translateX(-1.8em);
+    }
+
+    .action-btn:hover .icon-right,
+    .action-btn:active .icon-right{
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .action-btn:hover .icon-left,
+    .action-btn:active .icon-left{
+      opacity: 0;
+      filter: blur(5px);
+    }
   }
 
-  .action-btn:hover .icon-right,
-  .action-btn:active .icon-right{
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  .action-btn:hover .icon-left,
-  .action-btn:active .icon-left{
-    opacity: 0;
-    filter: blur(5px);
+  .action-btn.reverse{
+    background: var(--beige-200);
+    color: var(--brown-800);
+    box-shadow: 0 4px 10px var(--light-shadow);
   }
 
   .action-btn:focus-visible{
@@ -102,17 +102,12 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
-
-  .action-btn.reverse{
-    background: var(--beige-200);
-    color: var(--brown-800);
-    box-shadow: 0 4px 10px var(--light-shadow);
-  }
 </style>
 
 <script setup>
   import { computed } from 'vue'
-  import { icons } from "../locales/icons.js"
+  import { icons } from "../../locales/icons.js"
+  import Icon from "../icon.vue"
 
   const props = defineProps({
     leftIcon: {
@@ -150,5 +145,5 @@
     }
   })
 
-  const isButton = computed(() => props.tag.value === 'button')
+  const isButton = computed(() => props.tag === 'button')
 </script>

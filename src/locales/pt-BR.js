@@ -75,39 +75,66 @@ export default {
                 title: "Perfil Profissional",
                 content: {
                     paragraphs: [
-                        "Desenvolvedor Full-Stack, construo API’s com arquitetura REST com objetivo, principalmente, de integrar sistemas web utilizando Node.js e PHP com bancos de dados.",
-                        "Desenvolvo interfaces pensando em experiências intuitívas, responsivas e amigáveis para diferentes perfis de usuários. Sempre planejando reusabilidade e facilidade de manutenção de códigos.",
-                        "Possuo grande interesse por design em geral e por frameworks modernos, como Vue.js."
+                        {
+                            tag: "p",
+                            classes: [],
+                            content: "Desenvolvedor Full-Stack, construo API’s com arquitetura REST com objetivo, principalmente, de integrar sistemas web utilizando Node.js e PHP com bancos de dados."
+                        },
+                        {
+                            tag: "p",
+                            classes: [],
+                            content: "Desenvolvo interfaces pensando em experiências intuitívas, responsivas e amigáveis para diferentes perfis de usuários. Sempre planejando reusabilidade e facilidade de manutenção de códigos."
+                        },
+                        {
+                            tag: "p",
+                            classes: [],
+                            content: "Possuo grande interesse por design em geral e por frameworks modernos, como Vue.js."
+                        }
                     ]
                 }
             },
-            background: {
-                title: "Formação"
+            skills: {
+                title: "Habilidades"
+            },
+            backgrounds: {
+                title: "Formação",
+                content: {
+                    ufla: {
+                        title: "Bacharelado em Ciência da Computação",
+                        subtitle: "Universidade Federal de Lavras (UFLA)",
+                        period: "2024 - Em Andamento",
+                        description: ""
+                    }
+                }
+
             },
             experiences: {
                 title: "Experiências",
-                content: [
-                    {
+                content: {
+                    project01: {
                         title: "Desenvolvedor Full-Stack",
-                        subtitle: "Project/Enterprise",
-                        period: "2023 - Presente",
+                        subtitle: "Empresa X",
+                        period: "2023 - Atualmente",
                         description: "Descrição aqui"
                     }
-                ]
-
+                }
             },
             languages: {
                 title: "Idiomas",
-                content: [
-                    {
+                content: {
+                    ptbr: {
                         title: "Português",
-                        subtitle: "Nativo"
+                        subtitle: "Nativo",
+                        period: "",
+                        description: ""
                     },
-                    {
+                    en: {
                         title: "Inglês",
                         subtitle: "Avançado",
+                        period: "",
+                        description: ""
                     }
-                ]
+                }
             }
         }
     },
@@ -127,15 +154,31 @@ export default {
     },
     sidebar: {
         resume: "Baixar Currículo",
-        language: "Idioma - <strong>Português</strong>",
-        lightTheme: "Tema - <strong>Claro</strong>",
-        darkTheme: "Tema - <strong>Escuro</strong>",
+        language: "Idioma - Português",
+        lightTheme: "Tema - Claro",
+        darkTheme: "Tema - Escuro",
         sections: {
             social: {
                 title: "Redes Sociais"
             },
             others: {
                 title: "Outros"
+            }
+        }
+    },
+    navbar: {
+        items: {
+            home: {
+                label: "Início"
+            },
+            aboutMe: {
+                label: "Sobre Mim",
+            },
+            projects: {
+                label: "Projetos",
+            },
+            contact:{
+                label: "Contato",
             }
         }
     }

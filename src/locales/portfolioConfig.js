@@ -63,19 +63,37 @@ export const aboutMe = {
             type: "grid-list"
         },
         {
-            id: "background",
+            id: "backgrounds",
             icon: icons.capFilled,
-            type: "regular-list"
+            type: "regular-list",
+            content: [
+                {
+                    id: "ufla"
+                }
+            ]
         },
         {
             id: "experiences",
             icon: icons.pencilFilled,
-            type: "regular-list"
+            type: "regular-list",
+            content: [
+                {
+                    id: "project01"
+                }
+            ]
         },
         {
             id: "languages",
             icon: icons.translate,
-            type: "regular-list"
+            type: "regular-list",
+            content: [
+                {
+                    id: "ptbr"
+                },
+                {
+                    id: "en"
+                }
+            ]
         }
     ]
 }
@@ -134,16 +152,19 @@ export const skills = [
     {
         id: "illustrator",
         name: "Adobe Illustrator",
-        icon: "/src/assets/images/ai.svg"
+        icon: "/src/assets/images/illustrator.svg"
     }
 ]
 
-export const backgroundEnterprises = [
+export const backgrounds = [
     {
-        title: "Science Computer Bachelor's degree",
-        subtitle: "Universidade Federal de Lavras (UFLA)",
-        period: "2024 - Currently studying",
-        description: ""
+        id: "ufla"
+    },
+]
+
+export const experiences = [
+    {
+        id: "project01"
     }
 ]
 
@@ -190,6 +211,35 @@ export const home = {
         {
             id: "linkedin",
             type: "last"
+        }
+    ]
+}
+
+export const navbar = {
+    items: [
+        {
+            id: "home",
+            href: "#home",
+            icon: icons.home,
+            iconActive: icons.homeFilled
+        },
+        {
+            id: "aboutMe",
+            href: "#aboutMe",
+            icon: icons.userFrame,
+            iconActive: icons.userFrameFilled
+        },
+        {
+            id: "projects",
+            href: "#projects",
+            icon: icons.cube,
+            iconActive: icons.cubeFilled
+        },
+        {
+            id: "contact",
+            href: "#contact",
+            icon: icons.inbox,
+            iconActive: icons.inboxFilled
         }
     ]
 }
