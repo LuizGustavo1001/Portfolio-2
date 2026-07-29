@@ -3,7 +3,7 @@
     <!-- Main Sidebar Content -->
     <div class="flex-grow-1 flex-05 flex-column" style="gap: 2em;">
       <nav v-for="nav in sidebar" :key="nav.id" class="flex-05 flex-column">
-        <h2 class="title"> {{ $t(`sidebar.sections.${nav.id}.title`) }}</h2>
+        <h2 class="title medium-weight"> {{ $t(`sidebar.sections.${nav.id}.title`) }}</h2>
 
         <ul class="flex-05 flex-column gap-1" style="gap: 1em;">
           <li v-for="item in nav.items">
@@ -39,7 +39,7 @@
             </template>
 
             <template v-else>
-              <ActionButton :leftIcon="icons.moonFilled"
+              <ActionButton :leftIcon="props.theme === 'lightTheme'? icons.moonFilled : icons.sunFilled"
                             :right-icon="icons.switch"
                             :label="$t(`sidebar.${props.theme}`)"
                             style="width: 100%; justify-content: flex-start"
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Sidebar Footer -->
-    <span class="light-weight text-center">Luiz Gustavo de Almeida Lopes - Portfolio</span>
+    <span class="light-weight text-center footer">Luiz Gustavo de Almeida Lopes - Portfolio</span>
   </aside>
 </template>
 
@@ -79,13 +79,16 @@
   }
 
   h2{
-    font-size: 20px;
+    font-size: clamp(0.9em, 2dvw, 1.2em);
     color: var(--brown-600);
-    font-weight: 500;
   }
 
   .action-btn{
     font-size: 0.85em;
+  }
+
+  .footer{
+    font-size: clamp(0.8em, 2dvw, 1em);
   }
 </style>
 

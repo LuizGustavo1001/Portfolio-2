@@ -2,7 +2,7 @@
   <header class="flex-05 align-center">
     <!-- Left Content -->
     <div class="flex-05 align-center flex-grow-1">
-      <img src="/src/assets/images/me.jpg" alt="Profile Picture">
+      <Icon :icon="icons.logo" size="45px" class="icon"/>
       <p><strong>Luiz Gustavo</strong> <br> de Almeida Lopes</p>
     </div>
 
@@ -16,7 +16,7 @@
     position: fixed;
     width: 100%;
     padding: 0.5em;
-    box-shadow: 0 4px 10px var(--light-shadow);
+    box-shadow: 0 4px 10px var(--lighter-shadow);
     backdrop-filter: blur(8px);
 
     z-index: 1;
@@ -32,9 +32,9 @@
     z-index: -1;
   }
 
-  header img{
-    width: 50px;
-    border-radius: 8px;
+  .icon{
+    padding-right: 0.5em;
+    border-right: 2px solid var(--light-shadow);
   }
 
   @media(min-width: 1024px){
@@ -47,6 +47,7 @@
 <script setup>
   import { icons } from "/src/locales/icons.js"
   import IconBtn from "../buttons/iconBtn.vue"
+  import Icon from "../icon.vue";
 
   const emits = defineEmits(["toggle-aside"])
 

@@ -9,16 +9,6 @@
         <h1 class="medium-weight">{{ $t("projectsSection.title.medium") }} <strong>{{ $t("projectsSection.title.bold") }}</strong>.</h1>
       </div>
 
-      <nav class="menu">
-        <IconBtn :icon="icons.arrowLeft" tag="button"/>
-        <div class="flex-05 justify-center align-center">
-          <ActionButtonAlt tag="button" label="projeto"/>
-          <ActionButtonAlt tag="button" label="projeto"/>
-          <ActionButtonAlt tag="button" label="projeto"/>
-          <ActionButtonAlt tag="button" label="projeto"/>
-        </div>
-        <IconBtn :icon="icons.arrowRight" tag="button"/>
-      </nav>
     </div>
   </section>
 </template>

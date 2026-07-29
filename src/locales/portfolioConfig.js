@@ -199,22 +199,6 @@ export const sidebar = [
     }
 ]
 
-export const home = {
-    btns: [
-        {
-            id: "github",
-            type: "first"
-        },
-        {
-            id: "resume"
-        },
-        {
-            id: "linkedin",
-            type: "last"
-        }
-    ]
-}
-
 export const navbar = {
     items: [
         {

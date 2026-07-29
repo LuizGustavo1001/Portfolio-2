@@ -22,7 +22,7 @@
     transform: translateX(-50%);
 
     background: var(--beige-100);
-    border: 2px solid var(--beige-200);
+
     padding: 0.5em;
 
     border-radius: 16px;

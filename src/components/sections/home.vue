@@ -1,107 +1,89 @@
 <template>
-  <section class="main-section flex-05 flex-column justify-center">
-    <div class="hero">
-      <!-- Title -->
-      <h1 class="title">Portfolio.</h1>
+  <section class="main-section flex-05 flex-column justify-center align-center">
+    <div class="content flex-05 flex-column align-center">
+      <div class="content-wrapper">
+        <div class="title relative">
+          <h1>Portfolio.</h1>
+          <div class="markup absolute"></div>
+        </div>
 
-      <!-- Subtitle -->
-      <div class="sub-title">
-        <p>Luiz Gustavo de Almeida Lopes</p>
-        <i18n-t keypath="home.role" tag="p" scope="global" style="text-align: right;">
-          <template #role>
-            <strong>Full-Stack</strong>
-          </template>
-        </i18n-t>
+        <div class="sub-title flex-05 flex-column medium-weight">
+          <p>- <strong>Luiz Gustavo</strong> de Almeida Lopes -</p>
+
+          <i18n-t keypath="home.role"
+                  tag="p"
+                  scope="global"
+
+                  class="right">
+            <template #role>
+              - <strong>Full-Stack</strong> -
+            </template>
+          </i18n-t>
+        </div>
       </div>
 
-      <!-- Buttons Navigation -->
-      <div class="btns-wrapper flex-05 align-center justify-center flex-wrap">
-        <template v-for="btn in home.btns" :key="btn.id">
-          <ActionButton
-              :leftIcon="personalLinks[btn.id].icon"
-              :label="$t(`personalLinks.${btn.id}`)"
-              :reverseClr="btn.type !=='first' && btn.type !=='last'"
-              tag="a"
-              :link="personalLinks[btn.id].href"
-              class="header-link"
-              :class="{
-                first: btn.type === 'first',
-                last: btn.type === 'last',
-              }"
-              style="font-size: clamp(1em, 2vw, 1.2em)"
-          />
-        </template>
-      </div>
+      <img class="pfp" src="/src/assets/images/me.jpg" alt=""/>
     </div>
   </section>
 </template>
 
 <style scoped>
-  section{
-    background: url("/src/assets/images/lm-hero-bg.svg") no-repeat;
-    background-size: cover;
-  }
-  h1{
-    text-transform: uppercase;
-    font-size: clamp(3rem, 10vw, 8rem);
+  .content{
+    width: calc(100dvw - 1em);
+    max-width: 1500px;
+    padding: 1em;
+
+    justify-content: center;
+
+    animation: fade-in-upper 0.75s cubic-bezier(.45,-0.04,0,.95);
+
     text-align: center;
   }
-
-  .hero{
-    width: fit-content;
-    margin: 0 auto;
-    padding: 1em;
+  .content h1{
+    text-transform: uppercase;
+    font-size: clamp(3.8em, 8vw, 8em);
   }
-  .hero p{
+  .content p{
     font-size: clamp(1em, 2dvw, 1.3em);
   }
+  .content .pfp{
+    width: 50dvw;
+    max-width: 400px;
 
-  .sub-title{
-    width: 100%;
+    border-radius: 24px;
+
+    box-shadow: 0 0 20px var(--shadow);
   }
 
-  .header-link{
-    min-width: 150px;
+  .title{
+    width: fit-content;
+    margin: 0 auto;
   }
 
-  @media(min-width: 500px){
-    .header-link.first{
-      border-bottom-left-radius: 32px;
-    }
-    .header-link.last{
-      border-bottom-right-radius: 32px;
-    }
-  }
+  .markup{
+    width: 50%;
+    height: 30%;
+    background: #f8e4d0;
 
-  .btns-wrapper{
-    margin-top: 1em;
-    gap: 1em;
+    bottom: 10px;
+    right: 0;
+    z-index: -1;
   }
 
   @media(min-width: 1024px){
-    .header-link{
-      min-width: 200px;
+    .content{
+      text-align: inherit;
+      justify-content: space-between;
+      flex-direction: row;
     }
-    .btns-wrapper{
-      gap: 2em;
+    .content-wrapper{
+      width: fit-content;
+    }
+    .right{
+      text-align: right;
     }
   }
 
-  .hero{
-    animation: fade-in-upper 0.75s cubic-bezier(.45,-0.04,0,.95);
-  }
-  /*
-  @keyframes fade-in-upper{
-    from{
-      opacity: 0;
-      transform: rotate(-15deg) scale(0);
-    }
-    to{
-      opacity: 1;
-      transform: rotate(0) scale(1);
-    }
-  }
-  */
   @keyframes fade-in-upper{
     from{
       opacity: 0;
@@ -112,10 +94,4 @@
       transform: rotate(0) translateY(0);
     }
   }
-
 </style>
-
-<script setup>
-  import { home, personalLinks } from "../../locales/portfolioConfig.js"
-  import ActionButton from "../buttons/actionButton.vue"
-</script>

@@ -47,7 +47,7 @@
             >
               <template v-if="section.type === 'text'">
                 <template v-for="paragraph in $tm(`aboutMe.sections.${section.id}.content.paragraphs`)" :key="paragraph.tag">
-                  <component :is="paragraph.tag ?? 'p'" :class="paragraph.classes ?? ''">
+                  <component :is="paragraph.tag ?? 'p'" :class="paragraph.classes ?? ''" class="paragraph">
                     {{ paragraph.content ?? '' }}
                   </component>
                 </template>
@@ -102,7 +102,7 @@
 
     padding: 2em 1em;
 
-    background: radial-gradient(transparent, var(--transparent-30)), url("/src/assets/images/paint04.webp") no-repeat center center ;
+    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/src/assets/images/paint04.webp") no-repeat center center ;
     background-size: cover;
     box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
     border-radius: 16px;
@@ -128,7 +128,8 @@
   }
   .sidebar h1{
     font-weight: 500;
-    border-bottom: 1px solid var(--transparent-border-30);
+    padding-bottom: 0.2em;
+    border-bottom: 2px solid var(--transparent-border-30);
   }
 
   .menu{
@@ -181,6 +182,9 @@
   }
   .content p{
     font-size: 0.9em;
+  }
+  .content .paragraph{
+    font-size: clamp(1em, 2vw, 1.2em);
   }
 
 
