@@ -1,7 +1,6 @@
 <script setup>
   import { ref, watch, onMounted, onUnmounted } from "vue"
   import { useI18n } from 'vue-i18n'
-  import { icons } from './locales/icons'
 
   const { locale } = useI18n()
 
@@ -14,8 +13,14 @@
   import AboutMe from "./components/sections/aboutMe.vue"
   import Projects from "./components/sections/projects.vue"
   import Contact from "./components/sections/contact.vue"
-  import Icon from "./components/icon.vue";
 
+  // Toggle overlay
+  const overlayIsOpen = ref(false)
+
+  const toggleOverlay = () => {
+    overlayIsOpen.value = !overlayIsOpen.value
+    document.body.classList.toggle("overflow-hidden")
+  }
 
   // Toggle language
   const getInitLang = () => {
@@ -72,14 +77,15 @@
 
   const handleToggleAside = () => {
     asideIsOpen.value = !asideIsOpen.value
+    toggleOverlay()
   }
 
   const handleClickOutside = (event) => {
     const clickedInsideSidebar = event.target.closest('#sidebar')
     const clickedToggleButton = event.target.closest('#sidebar-toggle-btn')
 
-    if (asideIsOpen.value && !clickedInsideSidebar && !clickedToggleButton) {
-      asideIsOpen.value = false
+    if(asideIsOpen.value && !clickedInsideSidebar && !clickedToggleButton){
+      handleToggleAside()
     }
   }
 
@@ -104,10 +110,13 @@
 </script>
 
 <template>
-  <Overlay :class="asideIsOpen ? 'active' : ''"/>
+  <!-- Overlay -->
+  <Overlay :class="overlayIsOpen ? 'active' : ''"/>
 
+  <!-- Main Nav Bar -->
   <NavBar/>
 
+  <!-- Sidebar -->
   <Sidebar
       @toggle-language="handleToggleLanguage"
       @toggle-theme="handleToggleTheme"
@@ -118,9 +127,16 @@
   <Header @toggle-aside="handleToggleAside"/>
 
   <main>
+    <!-- Home Section -->
     <Home id="home"/>
+
+    <!-- About Me Section -->
     <AboutMe id="aboutMe"/>
-    <Projects id="projects"/>
+
+    <!-- Latest Projects Section -->
+    <Projects id="projects" @toggleOverlay="toggleOverlay()"/>
+
+    <!-- Contact Section -->
     <Contact id="contact"/>
   </main>
 

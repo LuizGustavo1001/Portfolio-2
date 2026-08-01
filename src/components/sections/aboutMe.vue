@@ -1,6 +1,10 @@
 <template>
-  <section class="main-section flex-05 justify-center">
-    <div class="container flex-05 justify-center translucent">
+  <section class="main-section flex-05 align-center justify-center">
+    <div class="container flex-05 justify-center translucent relative">
+      <div class="background-text absolute">
+        <span>{{ $t(`aboutMe.title.medium`) }} {{ $t(`aboutMe.title.bold`) }}</span>
+      </div>
+
       <div class="container-body w-full">
         <nav class="sidebar flex-05 flex-column" role="navigation" aria-label="about me main navigation" style="gap: 1em;">
           <div class="flex-05 flex-column">
@@ -42,13 +46,13 @@
                   :class="[
                      section.type === 'grid-list' ? 'grid-list' : undefined,
                      section.type === 'text' ? ['flex-05', 'flex-column'] : undefined,
-                     section.type === 'regular-list' ? ['flex-05', 'flex-column'] : undefined
+                     section.type === 'regular-list' ? ['flex-05', 'flex-column', 'regular-list'] : undefined
                   ]"
             >
               <template v-if="section.type === 'text'">
                 <template v-for="paragraph in $tm(`aboutMe.sections.${section.id}.content.paragraphs`)" :key="paragraph.tag">
                   <component :is="paragraph.tag ?? 'p'" :class="paragraph.classes ?? ''" class="paragraph">
-                    {{ paragraph.content ?? '' }}
+                    {{ paragraph.content ?? '' }}.
                   </component>
                 </template>
               </template>
@@ -68,7 +72,7 @@
                 <div v-for="item in section.content" :key="item.id" class="flex-05 align-center">
                   <div class="vertical-line"></div>
 
-                  <div class="flex-05 flex-column" style="gap: 0">
+                  <div class="flex-05 flex-column" style="gap: 0.3em">
                     <h3>{{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.title`) }}</h3>
                     <p class="text-muted">
                       {{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.subtitle`) }}
@@ -77,6 +81,19 @@
                         • <em>({{ $t(`aboutMe.sections.${section.id}.content.${item.id}.period`) }})</em>
                       </span>
                     </p>
+
+                    <p v-if="$te(`aboutMe.sections.${section.id}.content.${item.id}.description`)">
+                      {{ $t(`aboutMe.sections.${section.id}.content.${item.id}.description`) }}
+                    </p>
+
+                    <a v-if="$te(`aboutMe.sections.${section.id}.content.${item.id}.link`)"
+                       :href="$t(`aboutMe.sections.${section.id}.content.${item.id}.link`)"
+                       rel="noopener noreferrer"
+                       target="_blank"
+                       style="width: fit-content"
+                    >
+                      Certificate
+                    </a>
                   </div>
                 </div>
               </template>
@@ -90,15 +107,33 @@
 
 <style scoped>
   .main-section{
-    padding-block: 3em;
     animation: fade-in-upper 1s cubic-bezier(.45,-0.04,0,.95);
+  }
+
+  .background-text{
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-size: clamp(3em, 15dvw, 12em);
+    z-index: -1;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+  .background-text span{
+    opacity: 0.5;
+    background: linear-gradient(to bottom, var(--slate-600), transparent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
   }
 
   .container{
     width: calc(100dvw - 1em);
     max-width: 1500px;
     height: 100dvh;
-    max-height: 850px;
+    max-height: 750px;
 
     padding: 2em 1em;
 
@@ -109,12 +144,12 @@
   }
 
   .container-body{
-    padding: 1em;
+    padding: 0.5em;
     max-width: 1200px;
 
     background: radial-gradient(transparent, var(--transparent-30) 90%);
     border: 2px solid var(--transparent-border-30);
-    border-radius: 16px;
+    border-radius: 8px;
     backdrop-filter: blur(20px);
 
     display: flex;
@@ -125,6 +160,8 @@
   .sidebar{
     min-height: 0;
     max-height: 100%;
+
+    padding: 0.5em 0.5em 0 0.5em;
   }
   .sidebar h1{
     font-weight: 500;
@@ -159,19 +196,23 @@
   .content-panel{
     padding: 1em;
     background: var(--transparent-30);
-    border-radius: 16px;
+    border-radius: 8px;
 
     max-height: 100%;
     min-height: 0;
 
+    position: relative;
     overflow: hidden;
   }
   .content-panel h2{
-    font-size: clamp(1.5em, 3dvw, 2em);
+    font-size: clamp(1.5em, 3dvw, 1.8em);
+    padding-bottom: 0.2em;
+
+    border-bottom: 4px dashed var(--transparent-border-30);
   }
   
   .content-panel-animation{
-    animation: fade-in 0.5s ease;
+    animation: fade-in 0.5s  cubic-bezier(1, -0.3, 0.3, 0.94);
   }
 
   .content{
@@ -184,13 +225,16 @@
     font-size: 0.9em;
   }
   .content .paragraph{
-    font-size: clamp(1em, 2vw, 1.2em);
-  }
+    text-align: justify;
+    font-size: clamp(1em, 2vw, 1.1em);
+    word-spacing: 5px;
 
+    line-height: 1.7em;
+  }
 
   .highlight-bar{
     width: 4px;
-    height: 100%;
+    height: 20px;
 
     background: var(--white);
     border-radius: 0 16px 16px 0;
@@ -214,12 +258,23 @@
     font-size: 0.75em;
   }
 
+  .regular-list{
+    gap: 1em;
+  }
+
+  .vertical-line{
+    width: 3px;
+    min-height: 80px;
+    height: 100%;
+    background: var(--grey);
+  }
+
   @media(min-width: 1024px){
     .container{
       border-radius: 32px;
       width: calc(100dvw - 3em);
       height: calc(100dvh - 200px);
-      max-height: 900px;
+      max-height: 750px;
     }
 
     .container-body{
@@ -264,7 +319,7 @@
   import { icons } from "/src/locales/icons.js"
   import { aboutMe, skills } from "/src/locales/portfolioConfig.js"
   import { ref } from "vue"
-  import Icon from "../icon.vue"
+  import Icon from "/src/components/icon.vue"
 
   const selectedItem = ref(localStorage.getItem("selectedItemAboutMe") ?? aboutMe.sections[0].id)
 

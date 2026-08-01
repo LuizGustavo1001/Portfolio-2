@@ -28,7 +28,8 @@
     transition: 0.2s ease;
   }
   .icon-wrapper:hover{
-    background: var(--beige-300);
+    background: var(--cream-200);
+    transform: scale(1.1);
   }
 
   .icon-wrapper :deep(svg) {
@@ -38,7 +39,7 @@
 </style>
 
 <script setup>
-  import {computed} from "vue"
+  import { computed } from "vue"
 
   const props = defineProps({
     tag: {

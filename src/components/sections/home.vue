@@ -1,13 +1,15 @@
+
 <template>
-  <section class="main-section flex-05 flex-column justify-center align-center">
+  <section class="main-section flex-05 flex-column justify-center align-center relative">
     <div class="content flex-05 flex-column align-center">
       <div class="content-wrapper">
+
         <div class="title relative">
           <h1>Portfolio.</h1>
           <div class="markup absolute"></div>
         </div>
 
-        <div class="sub-title flex-05 flex-column medium-weight">
+        <div class="sub-title flex-05 flex-column">
           <p>- <strong>Luiz Gustavo</strong> de Almeida Lopes -</p>
 
           <i18n-t keypath="home.role"
@@ -16,13 +18,18 @@
 
                   class="right">
             <template #role>
-              - <strong>Full-Stack</strong> -
+              <strong>Full-Stack</strong>
             </template>
           </i18n-t>
         </div>
       </div>
 
-      <img class="pfp" src="/src/assets/images/me.jpg" alt=""/>
+      <img class="pfp" src="/src/assets/images/me.jpg" alt="Profile Picture"/>
+    </div>
+
+    <div class="scroll-indicator flex-05 align-center absolute">
+      <Icon :icon="icons.swipeDown" size="30px"></Icon>
+      <span aria-hidden="false">{{ $t("home.scrollLabel") }}</span>
     </div>
   </section>
 </template>
@@ -31,28 +38,32 @@
   .content{
     width: calc(100dvw - 1em);
     max-width: 1500px;
-    padding: 1em;
+    padding: 1em 3em;
 
     justify-content: center;
+    gap: 2em;
 
     animation: fade-in-upper 0.75s cubic-bezier(.45,-0.04,0,.95);
 
     text-align: center;
   }
   .content h1{
-    text-transform: uppercase;
     font-size: clamp(3.8em, 8vw, 8em);
+    letter-spacing: 0.5dvw;
   }
   .content p{
-    font-size: clamp(1em, 2dvw, 1.3em);
+    font-size: clamp(1em, 2dvw, 1.2em);
   }
   .content .pfp{
-    width: 50dvw;
+    width: 30dvw;
+    min-width: 200px;
     max-width: 400px;
 
     border-radius: 24px;
 
     box-shadow: 0 0 20px var(--shadow);
+
+    animation: pfp 5s cubic-bezier(.45,-0.04,0,.95) infinite;
   }
 
   .title{
@@ -62,12 +73,19 @@
 
   .markup{
     width: 50%;
-    height: 30%;
-    background: #f8e4d0;
+    height: 40%;
+    background: var(--cream-300);
 
-    bottom: 10px;
+    bottom: 20px;
     right: 0;
     z-index: -1;
+  }
+
+  .scroll-indicator{
+    bottom: 0;
+    color: var(--slate-500);
+
+    animation: opacity 3s ease-out infinite;
   }
 
   @media(min-width: 1024px){
@@ -84,6 +102,19 @@
     }
   }
 
+  @keyframes opacity {
+    0%{ opacity: 0 }
+    50%{ opacity: 1 }
+    100%{ opacity: 0 }
+  }
+
+  @keyframes pfp{
+    0%{ transform: rotate(0); }
+    25%{ transform: rotate(7deg); }
+    50%{ transform: rotate(-7deg); }
+    100%{ transform: rotate(0); }
+  }
+
   @keyframes fade-in-upper{
     from{
       opacity: 0;
@@ -95,3 +126,8 @@
     }
   }
 </style>
+
+<script setup>
+  import Icon from "/src/components/icon.vue"
+  import { icons } from "/src/locales/icons.js"
+</script>

@@ -16,7 +16,7 @@
       </slot>
 
       <!-- Text -->
-      <span class="btn-text">
+      <span class="btn-text medium-weight">
         <slot name="label"> {{ label }} </slot>
       </span>
 
@@ -42,8 +42,9 @@
     border-radius: 12px;
     border: none;
 
-    background: var(--brown-800);
-    color: var(--beige-100);
+    background: var(--slate-800);
+    color: var(--white);
+    box-shadow: 0 4px 5px var(--lighter-shadow);
     font-weight: 500;
     font-size: 1.1em;
 
@@ -88,13 +89,12 @@
   }
 
   .action-btn.reverse{
-    background: var(--beige-200);
-    color: var(--brown-800);
-    box-shadow: 0 4px 10px var(--light-shadow);
+    background: var(--cream-200);
+    color: var(--slate-800);
   }
 
   .action-btn:focus-visible{
-    outline: 4px double var(--beige-400);
+    outline: 4px double var(--cream-300);
     outline-offset: 2px;
   }
 
@@ -106,8 +106,8 @@
 
 <script setup>
   import { computed } from 'vue'
-  import { icons } from "../../locales/icons.js"
-  import Icon from "../icon.vue"
+  import { icons } from "/src/locales/icons.js"
+  import Icon from "/src/components/icon.vue"
 
   const props = defineProps({
     leftIcon: {

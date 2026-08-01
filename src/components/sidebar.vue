@@ -3,7 +3,7 @@
     <!-- Main Sidebar Content -->
     <div class="flex-grow-1 flex-05 flex-column" style="gap: 2em;">
       <nav v-for="nav in sidebar" :key="nav.id" class="flex-05 flex-column">
-        <h2 class="title medium-weight"> {{ $t(`sidebar.sections.${nav.id}.title`) }}</h2>
+        <h2 class="title medium-weight text-muted"> {{ $t(`sidebar.sections.${nav.id}.title`) }}</h2>
 
         <ul class="flex-05 flex-column gap-1" style="gap: 1em;">
           <li v-for="item in nav.items">
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Sidebar Footer -->
-    <span class="light-weight text-center footer">Luiz Gustavo de Almeida Lopes - Portfolio</span>
+    <span class="light-weight text-center text-muted footer">Luiz Gustavo de Almeida Lopes - Portfolio</span>
   </aside>
 </template>
 
@@ -67,12 +67,12 @@
 
     padding: 2em 1em 1em 1em;
 
-    background: var(--beige-100);
-    z-index: 4;
+    background: var(--cream-100);
+    z-index: 5;
 
     transform: translateX(100%);
 
-    transition: transform 0.4s cubic-bezier(.35,-0.23,.45,.59);
+    transition: transform 0.4s cubic-bezier(1, -0.56, 0.33, 0.94);
   }
   .sidebar.active{
     transform: translateX(0);
@@ -80,7 +80,6 @@
 
   h2{
     font-size: clamp(0.9em, 2dvw, 1.2em);
-    color: var(--brown-600);
   }
 
   .action-btn{
@@ -95,8 +94,8 @@
 <script setup>
   import { personalLinks, sidebar } from "/src/locales/portfolioConfig.js"
   import { icons } from "/src/locales/icons.js"
-  import ActionButton from "./buttons/actionButton.vue"
-  import ActionButtonAlt from "./buttons/actionButtonAlt.vue"
+  import ActionButton from "/src/components/buttons/actionButton.vue"
+  import ActionButtonAlt from "/src/components/buttons/actionButtonAlt.vue"
 
   const emit  = defineEmits(['toggle-language', 'toggle-theme'])
   const props = defineProps(['theme'])

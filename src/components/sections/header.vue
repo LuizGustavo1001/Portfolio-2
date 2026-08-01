@@ -1,25 +1,29 @@
 <template>
-  <header class="flex-05 align-center">
-    <!-- Left Content -->
-    <div class="flex-05 align-center flex-grow-1">
-      <Icon :icon="icons.logo" size="45px" class="icon"/>
-      <p><strong>Luiz Gustavo</strong> <br> de Almeida Lopes</p>
-    </div>
+  <header class="w-full">
+    <div class="content flex-05 align-center w-full"><!-- Left Content -->
+      <div class="flex-05 align-center flex-grow-1">
+        <Icon :icon="icons.logo" size="45px" class="icon"/>
+      </div>
 
-    <!-- Right Content -->
-    <IconBtn :icon="icons.sidebar" tag="button" size="25px" id="sidebar-toggle-btn" @click="toggleAside"/>
+      <!-- Right Content -->
+      <IconBtn :icon="icons.sidebar" tag="button" size="25px" id="sidebar-toggle-btn" @click="toggleAside"/>
+    </div>
   </header>
 </template>
 
 <style scoped>
   header{
     position: fixed;
-    width: 100%;
     padding: 0.5em;
     box-shadow: 0 4px 10px var(--lighter-shadow);
     backdrop-filter: blur(8px);
 
-    z-index: 1;
+    z-index: 3;
+  }
+
+  .content{
+    max-width: 1500px;
+    margin-inline: auto;
   }
 
   header::before{
@@ -27,27 +31,22 @@
     position: absolute;
     inset: 0;
 
-    background: var(--beige-100);
-    opacity: 0.7;
+    background: linear-gradient(to bottom, var(--cream-100), transparent);
+    opacity:1;
     z-index: -1;
-  }
-
-  .icon{
-    padding-right: 0.5em;
-    border-right: 2px solid var(--light-shadow);
   }
 
   @media(min-width: 1024px){
     header{
-      padding: 1em;
+      padding-inline: 3em;
     }
   }
 </style>
 
 <script setup>
   import { icons } from "/src/locales/icons.js"
-  import IconBtn from "../buttons/iconBtn.vue"
-  import Icon from "../icon.vue";
+  import IconBtn from "/src/components/buttons/iconBtn.vue"
+  import Icon from "/src/components/icon.vue"
 
   const emits = defineEmits(["toggle-aside"])
 

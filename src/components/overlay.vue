@@ -5,10 +5,14 @@
 <style scoped>
   #overlay{
     position: fixed;
-    inset: 0;
+
+    height: 100dvh;
+    width: 100dvw;
     background: var(--transparent-30);
 
-    z-index: 3;
+    z-index: 4;
+
+    backdrop-filter: blur(10px);
 
     display: none;
   }

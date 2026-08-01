@@ -40,7 +40,7 @@
     transition: 0.2s ease;
   }
   .action-btn:hover{
-    background: var(--beige-300);
+    background: var(--cream-200);
   }
 
   a{
@@ -50,7 +50,7 @@
 
 <script setup>
   import { computed } from "vue"
-  import Icon from "../icon.vue"
+  import Icon from "/src/components/icon.vue"
 
   const props = defineProps({
     leftIcon: {

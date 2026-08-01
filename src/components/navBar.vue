@@ -21,7 +21,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    background: var(--beige-100);
+    background: var(--cream-100);
 
     padding: 0.5em;
 
@@ -29,12 +29,12 @@
     width: max-content;
     box-shadow: 0 0 10px var(--light-shadow);
 
-    z-index: 2;
+    z-index: 3;
     animation: fade-in-upper 1s ease;
   }
 
   button{
-    color: var(--brown-700);
+    color: var(--slate-700);
     text-decoration: none;
     border: none;
     background: none;
@@ -42,7 +42,7 @@
     padding: 0.8em;
     border-radius: 8px;
 
-    font-size: clamp(0.8em, 2dvw, 0.9em);
+    font-size: 0.8em;
     transition: 0.2s ease;
     cursor: pointer;
   }
@@ -50,7 +50,12 @@
   button.active,
   button:hover,
   button:active{
-    background: var(--beige-200);
+    background: var(--cream-200);
+  }
+
+  button:hover,
+  button:active{
+    transform: scale(1.05);
   }
 
   @media(max-width: 768px){
@@ -74,7 +79,7 @@
 <script setup>
   import { ref, onMounted } from "vue"
   import { navbar } from "/src/locales/portfolioConfig.js"
-  import Icon from "./icon.vue"
+  import Icon from "/src/components/icon.vue"
 
   const selectedItem = ref(localStorage.getItem("selectedItemNavBar") ?? navbar.items[0].id)
   const headerHeight = 75

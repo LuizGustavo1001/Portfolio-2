@@ -2,49 +2,63 @@ import { icons } from "./icons.js"
 
 export const personalLinks = {
     mail: {
+        id: "mail",
         href: "mailto:gustavw1001@gmail.com",
+        value: "gustavw1001@gmail.com",
         icon: icons.mailFilled,
     },
     resume: {
+        id: "resume",
         href: "",
+        value: "Portfolio",
         icon: icons.documentFilled,
     },
     github: {
+        id: "github",
         href: "https://github.com/LuizGustavo1001",
+        value: "LuizGustavo1001",
         icon: icons.github,
     },
     instagram: {
+        id: "instagram",
         href: "https://www.instagram.com/luiz_g1001/",
+        value: "luiz_g1001",
         icon: icons.instagram,
     },
     linkedin: {
+        id: "linkedin",
         href: "https://www.linkedin.com/in/luizgustavo1001/",
+        value: "LuizGustavo1001",
         icon: icons.linkedinFilled,
     }
 }
 
 export const projects = {
     dictionary: {
-      href: "/src/assets/images/dicionario.png",
-      skills: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
-      repository: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
-      demo: ""
+        id: "dictionary",
+        href: "url(/src/assets/images/dicionario.png)",
+        stacks: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
+        repository: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
+        demo: ""
     },
     acai: {
-        href: "/src/assets/images/acai.webp",
-        skills: ["PHP OOP", "MySQL", "HTML5", "CSS3", "Cloudinary API", "Composer", "Google Cloud API", "Figma"],
+        id: "acai",
+        href: "url(/src/assets/images/acai.webp)",
+        stacks: ["PHP OOP", "MySQL", "HTML5", "CSS3", "Cloudinary API", "Composer", "Google Cloud API", "Figma"],
         repository: "https://github.com/LuizGustavo1001/Projeto-Acai-2.0",
         demo: ""
     },
     todo: {
-        href: "/src/assets/images/todo.webp",
-        skills: ["JavaScript", "JSON", "Node.js", "Scrapping", "CRUD"],
+        id: "todo",
+        href: "url(/src/assets/images/todo.webp)",
+        stacks: ["JavaScript", "JSON", "Node.js", "Scrapping", "CRUD"],
         repository: "https://github.com/LuizGustavo1001/TODO-WebPage-JS",
         demo: "https://vercel-todo-list-js.vercel.app/"
     },
     animeList: {
-        href: "/src/assets/images/cpp.webp",
-        skills: ["C++", "CSV Scrapping"],
+        id: "animeList",
+        href: "url(/src/assets/images/cpp.png)",
+        stacks: ["C++", "CSV Scrapping"],
         repository: "https://github.com/LuizGustavo1001/Anime-Catalog-in-cpp",
         demo: ""
     }
@@ -73,12 +87,12 @@ export const aboutMe = {
             ]
         },
         {
-            id: "experiences",
+            id: "certificates",
             icon: icons.pencilFilled,
             type: "regular-list",
             content: [
                 {
-                    id: "project01"
+                    id: "vue01"
                 }
             ]
         },
@@ -153,6 +167,16 @@ export const skills = [
         id: "illustrator",
         name: "Adobe Illustrator",
         icon: "/src/assets/images/illustrator.svg"
+    },
+    {
+        id: "git",
+        name: "Git • Github",
+        icon: "/src/assets/images/git.svg"
+    },
+    {
+        id: "insomnia",
+        name: "Insomnia",
+        icon: "/src/assets/images/insomnia.svg"
     }
 ]
 
@@ -164,7 +188,7 @@ export const backgrounds = [
 
 export const experiences = [
     {
-        id: "project01"
+        id: "vue01"
     }
 ]
 
