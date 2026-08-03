@@ -13,6 +13,7 @@
   import AboutMe from "./components/sections/aboutMe.vue"
   import Projects from "./components/sections/projects.vue"
   import Contact from "./components/sections/contact.vue"
+  import Footer from "./components/sections/footer.vue";
 
   // Toggle overlay
   const overlayIsOpen = ref(false)
@@ -106,7 +107,6 @@
   onUnmounted(() => {
     window.removeEventListener('click', handleClickOutside)
   })
-
 </script>
 
 <template>
@@ -139,6 +139,8 @@
     <!-- Contact Section -->
     <Contact id="contact"/>
   </main>
+
+  <Footer/>
 
   <footer></footer>
 

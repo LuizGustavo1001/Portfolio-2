@@ -1,4 +1,4 @@
-import { icons } from "./icons.js"
+import { icons } from "/src/locales/icons.js"
 
 export const personalLinks = {
     mail: {
@@ -33,36 +33,36 @@ export const personalLinks = {
     }
 }
 
-export const projects = {
-    dictionary: {
+export const projects = [
+    {
         id: "dictionary",
         href: "url(/src/assets/images/dicionario.png)",
         stacks: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
         repository: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
         demo: ""
     },
-    acai: {
+    {
         id: "acai",
         href: "url(/src/assets/images/acai.webp)",
         stacks: ["PHP OOP", "MySQL", "HTML5", "CSS3", "Cloudinary API", "Composer", "Google Cloud API", "Figma"],
         repository: "https://github.com/LuizGustavo1001/Projeto-Acai-2.0",
         demo: ""
     },
-    todo: {
+    {
         id: "todo",
         href: "url(/src/assets/images/todo.webp)",
         stacks: ["JavaScript", "JSON", "Node.js", "Scrapping", "CRUD"],
         repository: "https://github.com/LuizGustavo1001/TODO-WebPage-JS",
         demo: "https://vercel-todo-list-js.vercel.app/"
     },
-    animeList: {
+    {
         id: "animeList",
         href: "url(/src/assets/images/cpp.png)",
         stacks: ["C++", "CSV Scrapping"],
         repository: "https://github.com/LuizGustavo1001/Anime-Catalog-in-cpp",
         demo: ""
     }
-}
+]
 
 export const aboutMe = {
     sections: [
@@ -223,31 +223,51 @@ export const sidebar = [
     }
 ]
 
+export const mainNavigation = [
+    {
+        id: "home",
+        href: "#home",
+        icon: icons.home,
+        iconActive: icons.homeFilled
+    },
+    {
+        id: "aboutMe",
+        href: "#aboutMe",
+        icon: icons.userFrame,
+        iconActive: icons.userFrameFilled
+    },
+    {
+        id: "projects",
+        href: "#projects",
+        icon: icons.cube,
+        iconActive: icons.cubeFilled
+    },
+    {
+        id: "contact",
+        href: "#contact",
+        icon: icons.inbox,
+        iconActive: icons.inboxFilled
+    }
+]
+
 export const navbar = {
-    items: [
+    items: mainNavigation
+}
+
+export const footer = {
+    personal: {
+        github: "github",
+        linkedin: "linkedin",
+        instagram: "instagram"
+    },
+    section: [
         {
-            id: "home",
-            href: "#home",
-            icon: icons.home,
-            iconActive: icons.homeFilled
+            id: "navigation",
+            links: mainNavigation
         },
         {
-            id: "aboutMe",
-            href: "#aboutMe",
-            icon: icons.userFrame,
-            iconActive: icons.userFrameFilled
-        },
-        {
-            id: "projects",
-            href: "#projects",
-            icon: icons.cube,
-            iconActive: icons.cubeFilled
-        },
-        {
-            id: "contact",
-            href: "#contact",
-            icon: icons.inbox,
-            iconActive: icons.inboxFilled
+            id: "others",
+            links: personalLinks
         }
     ]
 }

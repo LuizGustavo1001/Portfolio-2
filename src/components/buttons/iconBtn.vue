@@ -36,6 +36,13 @@
     width: v-bind(size);
     height: v-bind(size);
   }
+
+  .footer .icon-wrapper{
+    background: var(--slate-900);
+  }
+  .reverse .icon-wrapper:hover{
+    background: var(--slate-700);
+  }
 </style>
 
 <script setup>

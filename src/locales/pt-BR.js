@@ -60,7 +60,7 @@ export default {
         },
         acai: {
             title: "Projeto Açaí 2.0",
-            subtitle: "e-commerce",
+            subtitle: "E-commerce",
             description: "Plataforma de e-commerce completa, com gerenciamento de usuários, controle de vendas e painel administrativo com suporte a operações CRUD. Aplicação desenvolvida inteiramente em PHP, garantindo organização e segurança no fluxo de informações. A cada pedido realizado, os dados da transação são automaticamente registrados em uma planilha online, incluindo informações do cliente, produtos adquiridos e locais da compra, facilitando o acompanhamento e a gestão das vendas"
         },
         todo: {
@@ -119,7 +119,6 @@ export default {
                         description: ""
                     }
                 }
-
             },
             certificates: {
                 title: "Certificados",
@@ -189,14 +188,57 @@ export default {
                 label: "Início"
             },
             aboutMe: {
-                label: "Sobre Mim",
+                label: "Sobre Mim"
             },
             projects: {
-                label: "Projetos",
+                label: "Projetos"
             },
-            contact:{
-                label: "Contato",
+            contact: {
+                label: "Contato"
             }
         }
+    },
+    footer: {
+        section: {
+            navigation: {
+                title: "Navegação",
+                links: {
+                    home: {
+                        label: "Início"
+                    },
+                    aboutMe: {
+                        label: "Sobre Mim"
+                    },
+                    projects: {
+                        label: "Projetos"
+                    },
+                    contact: {
+                        label: "Contato"
+                    }
+                }
+            },
+
+            others: {
+                title: "Outros",
+                links: {
+                    mail: {
+                        label: "E-mail"
+                    },
+                    resume: {
+                        label: "Currículo"
+                    },
+                    linkedin: {
+                        label: "LinkedIn"
+                    },
+                    github: {
+                        label: "GitHub"
+                    },
+                    instagram: {
+                        label: "Instagram"
+                    }
+                }
+            }
+        },
+        thanks: "Desenvolvido por Luiz Gustavo"
     }
 }

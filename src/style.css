@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
 
 :root{
+    --slate-900: #282827;
     --slate-800: #3C3B3A;
     --slate-700: #766E6A;
     --slate-600: #AAA6A0;
@@ -57,7 +58,6 @@ li{
 a{
     color: var(--slate-800);
 }
-
 
 .w-full{
     width: 100%;
@@ -156,4 +156,14 @@ a{
     .main-section{
         padding-inline: 3em;
     }
+}
+
+
+.reverse,
+.reverse a{
+    color: var(--cream-100);
+}
+
+.reverse .text-muted{
+    color: var(--slate-600);
 }
