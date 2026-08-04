@@ -21,6 +21,7 @@
               <ActionButton tag="a"
                             :leftIcon="personalLinks[item.id].icon"
                             :label="$t(`sidebar.resume`)"
+                            :link="personalLinks[item.id].href"
                             style="width: 100%; justify-content: flex-start"
                             :right-icon="icons.externalLink"
                             class="action-btn"
@@ -88,6 +89,11 @@
 
   .footer{
     font-size: clamp(0.8em, 2dvw, 1em);
+  }
+
+  /* DARK MODE */
+  .dark-theme .sidebar{
+    background: var(--slate-900);
   }
 </style>
 

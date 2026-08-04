@@ -59,7 +59,7 @@
 
               <template v-else-if="section.type === 'grid-list'">
                 <div v-for="skill in skills" :key="skill.id" class="grid-item flex-05 align-center">
-                  <img :src="skill.icon" :alt="skill.id">
+                  <img :src="`/src/assets/images/${skill.icon}`" :alt="skill.id">
 
                   <div class="flex-05 flex-column" style="gap: 0;">
                     <h3>{{ skill.name }}</h3>

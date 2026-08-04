@@ -23,7 +23,7 @@
 
     --lighter-shadow: rgb(0 0 0 / 0.05);
     --light-shadow: rgb(0 0 0 / 0.1);
-    --shadow: rgb(0 0 0 / 0.3);
+    --shadow: rgb(0 0 0 / 0.2);
 
     --radial-gradient: radial-gradient(transparent, black);
 
@@ -35,6 +35,12 @@
     margin: 0;
     box-sizing: border-box;
     font-family: var(--font);
+
+    outline: none;
+}
+*:focus-visible{
+    outline: 4px double var(--transparent-30);
+    outline-offset: 2px;
 }
 
 body{
@@ -166,4 +172,30 @@ a{
 
 .reverse .text-muted{
     color: var(--slate-600);
+}
+
+
+
+/* DARK MODE */
+.dark-theme{
+    background: var(--slate-900) url("/src/assets/images/dm-body-bg.svg") no-repeat top right;
+    background-size: contain;
+    color: var(--cream-100);
+}
+
+.dark-theme a{
+    color: var(--cream-100);
+}
+
+.dark-theme .text-muted{
+    color: var(--slate-600);
+}
+
+.dark-theme .reverse,
+.dark-theme .reverse a{
+    color: var(--slate-800);
+}
+
+.dark-theme .reverse .text-muted{
+    color: var(--slate-700);
 }

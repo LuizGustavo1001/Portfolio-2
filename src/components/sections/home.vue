@@ -125,6 +125,15 @@
       transform: rotate(0) translateY(0);
     }
   }
+
+  /* DARK MODE */
+  .dark-theme .markup{
+    background: var(--slate-700);
+  }
+
+  .dark-theme .scroll-indicator{
+    color: var(--slate-700);
+  }
 </style>
 
 <script setup>
