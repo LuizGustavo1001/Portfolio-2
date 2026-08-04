@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <img class="pfp" src="/src/assets/images/me.jpg" alt="Profile Picture"/>
+      <img class="pfp" src="/images/me.jpg" alt="Profile Picture"/>
     </div>
 
     <div class="scroll-indicator flex-05 align-center absolute">

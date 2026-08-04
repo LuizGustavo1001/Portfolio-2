@@ -44,7 +44,7 @@
 }
 
 body{
-    background: var(--cream-100) url("/src/assets/images/lm-body-bg.svg") no-repeat top right;
+    background: var(--cream-100) url("/public/images/lm-body-bg.svg") no-repeat top right;
     background-size: contain;
     color: var(--slate-800);
     min-height: 100dvh;
@@ -178,7 +178,7 @@ a{
 
 /* DARK MODE */
 .dark-theme{
-    background: var(--slate-900) url("/src/assets/images/dm-body-bg.svg") no-repeat top right;
+    background: var(--slate-900) url("/public/images/dm-body-bg.svg") no-repeat top right;
     background-size: contain;
     color: var(--cream-100);
 }
