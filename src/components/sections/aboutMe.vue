@@ -59,7 +59,7 @@
 
               <template v-else-if="section.type === 'grid-list'">
                 <div v-for="skill in skills" :key="skill.id" class="grid-item flex-05 align-center">
-                  <img :src="`./src/assets/images/${skill.icon}`" :alt="skill.id">
+                  <img :src="`./public/images/${skill.icon}`" :alt="skill.id">
 
                   <div class="flex-05 flex-column" style="gap: 0;">
                     <h3>{{ skill.name }}</h3>
@@ -137,7 +137,7 @@
 
     padding: 2em 1em;
 
-    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/src/assets/images/paint04.webp") no-repeat center center ;
+    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/public/images/paint04.webp") no-repeat center center ;
     background-size: cover;
     box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
     border-radius: 16px;
