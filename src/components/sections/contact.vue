@@ -12,7 +12,7 @@
           <p class="text-muted">{{ $t(`contact.subtitle`) }}.</p>
         </div>
 
-        <img src="/public/images/me.jpg" alt="" class="pfp">
+        <img src="/images/me.jpg" alt="" class="pfp">
 
         <ul class="content flex-05 flex-column w-full" style="gap: 1em">
           <template v-for="item in personalLinks" :key="item.id">
@@ -69,7 +69,7 @@
 
     padding: 2em 1em;
 
-    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/public/images/paint03.webp") no-repeat center center ;
+    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint03.webp") no-repeat center center ;
     background-size: cover;
     box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
     border-radius: 16px;

@@ -111,7 +111,7 @@
   }
 
   .content{
-    background: url("/public/images/paint01.webp") no-repeat bottom;
+    background: url("/images/paint01.webp") no-repeat bottom;
     background-size: cover;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
