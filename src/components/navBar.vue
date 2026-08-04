@@ -74,6 +74,22 @@
       transform:  translate(-50%, 0);
     }
   }
+
+  /* DARK MODE */
+  .dark-theme nav{
+    background: var(--slate-900);
+    box-shadow: 0 0 10px var(--shadow);
+  }
+
+  .dark-theme button{
+    color: var(--slate-500);
+  }
+
+  .dark-theme button.active,
+  .dark-theme button:hover,
+  .dark-theme button:active{
+    background: var(--slate-800);
+  }
 </style>
 
 <script setup>
@@ -104,6 +120,4 @@
   onMounted(() => {
     toggleSelected(selectedItem.value)
   })
-
-
 </script>

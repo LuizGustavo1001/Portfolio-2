@@ -46,6 +46,11 @@
   a{
     text-decoration: none;
   }
+
+  /* DARK MODE */
+  .dark-theme .action-btn:hover{
+    background: var(--slate-800);
+  }
 </style>
 
 <script setup>

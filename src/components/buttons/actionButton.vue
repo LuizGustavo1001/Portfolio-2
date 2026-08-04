@@ -43,9 +43,9 @@
     border: none;
 
     background: var(--slate-800);
-    color: var(--white);
+    color: var(--cream-100);
     box-shadow: 0 4px 5px var(--lighter-shadow);
-    font-weight: 500;
+    font-weight: bolder;
     font-size: 1.1em;
 
     cursor: pointer;
@@ -93,14 +93,21 @@
     color: var(--slate-800);
   }
 
-  .action-btn:focus-visible{
-    outline: 4px double var(--cream-300);
-    outline-offset: 2px;
-  }
-
   .action-btn:disabled{
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  /* DARK MODE */
+  .dark-theme .action-btn{
+    background: var(--cream-100);
+    color: var(--slate-900);
+    box-shadow: 0 4px 5px var(--shadow);
+  }
+
+  .dark-theme .action-btn.reverse{
+    background: var(--slate-900);
+    color: var(--cream-100);
   }
 </style>
 

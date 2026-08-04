@@ -20,6 +20,8 @@
     padding: 0.5em;
     border-radius: 8px;
 
+    color: var(--slate-800);
+
     border: none;
     background: transparent;
 
@@ -42,6 +44,23 @@
   }
   .reverse .icon-wrapper:hover{
     background: var(--slate-700);
+  }
+
+  /* DARK MODE*/
+  .dark-theme .icon-wrapper{
+    color: var(--cream-100);
+  }
+  .dark-theme .icon-wrapper:hover{
+    background: var(--slate-800);
+  }
+
+  .dark-theme .footer .icon-wrapper{
+    background: var(--cream-300);
+    color: var(--slate-800);
+  }
+
+  .dark-theme .reverse .icon-wrapper:hover{
+    background: var(--cream-200);
   }
 </style>
 

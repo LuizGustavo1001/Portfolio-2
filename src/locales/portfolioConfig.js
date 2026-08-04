@@ -9,7 +9,7 @@ export const personalLinks = {
     },
     resume: {
         id: "resume",
-        href: "",
+        href: "https://docs.google.com/document/d/1op5d-Fn95WI7BIFwsvRQbXM7azC-Y6sGe8w0lJGfleQ/edit?usp=drive_link",
         value: "Portfolio",
         icon: icons.documentFilled,
     },
@@ -116,67 +116,67 @@ export const skills = [
     {
         id: "js",
         name: "JavaScript",
-        icon: "/src/assets/images/js.svg",
+        icon: "js.svg",
     },
     {
         id: "node",
         name: "Node.js",
-        icon: "/src/assets/images/node.svg",
+        icon: "node.svg",
     },
     {
         id: "docker",
         name: "Docker",
-        icon: "/src/assets/images/docker.svg"
+        icon: "docker.svg"
     },
     {
         id: "php",
         name: "PHP",
-        icon: "/src/assets/images/php.svg"
+        icon: "php.svg"
     },
     {
         id: "scss",
         name: "Scss/Sass",
-        icon: "/src/assets/images/scss.svg"
+        icon: "scss.svg"
     },
     {
         id: "figma",
         name: "Figma",
-        icon: "/src/assets/images/figma.svg"
+        icon: "figma.svg"
     },
     {
         id: "mysql",
         name: "MySQL",
-        icon: "/src/assets/images/mysql.svg"
+        icon: "mysql.svg"
     },
     {
         id: "html",
         name: "HTML & CSS",
-        icon: "/src/assets/images/html.svg"
+        icon: "html.svg"
     },
     {
         id: "cpp",
         name: "C++",
-        icon: "/src/assets/images/cpp.svg"
+        icon: "cpp.svg"
     },
     {
         id: "vue",
         name: "Vue.js",
-        icon: "/src/assets/images/vue.svg"
+        icon: "vue.svg"
     },
     {
         id: "illustrator",
         name: "Adobe Illustrator",
-        icon: "/src/assets/images/illustrator.svg"
+        icon: "illustrator.svg"
     },
     {
         id: "git",
         name: "Git • Github",
-        icon: "/src/assets/images/git.svg"
+        icon: "git.svg"
     },
     {
         id: "insomnia",
         name: "Insomnia",
-        icon: "/src/assets/images/insomnia.svg"
+        icon: "insomnia.svg"
     }
 ]
 

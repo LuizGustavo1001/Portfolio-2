@@ -41,6 +41,14 @@
       padding-inline: 3em;
     }
   }
+
+  /* DARK MODE */
+  .dark-theme header{
+    box-shadow: 0 4px 10px var(--light-shadow);
+  }
+  .dark-theme header::before{
+    background: linear-gradient(to bottom, var(--slate-900), transparent);
+  }
 </style>
 
 <script setup>

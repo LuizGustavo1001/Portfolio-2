@@ -74,6 +74,14 @@
     max-width: 1500px;
     margin: 0 auto;
   }
+
+  /* DARK MODE */
+  .dark-theme footer{
+    background: var(--cream-100);
+  }
+  .dark-theme hr{
+    color: var(--cream-100);
+  }
 </style>
 
 <script setup>
