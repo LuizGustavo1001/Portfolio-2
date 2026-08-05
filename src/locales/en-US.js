@@ -56,7 +56,7 @@ export default {
         dictionary: {
             title: "Studies Dictionary",
             subtitle: "Management Platform",
-            description: "The system works as a vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The platform features RESTful API architecture, with JWT authentication for registered users, as well as cloud storage using the Cloudinary API",
+            description: "Vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The platform features RESTful API architecture, with JWT authentication for registered users, as well as cloud storage using the Cloudinary API",
         },
         acai: {
             title: "Açaí Project 2.0",
@@ -65,13 +65,13 @@ export default {
         },
         todo: {
             title: "ToDo List",
-            subtitle: "",
-            description: "Online To-Do List featuring filters and dark mode, developed using JavaScript. The application retrieves locales from a JSON file responsible for storing task information. It implements a simple CRUD system, allowing users to create, view, update, and delete tasks, as well as manage their status between completed and in progressThe system works as a vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The plataform features RESTful API architecture, with JWT authentication for registered user, as well as cloud storage using Cloudinary API.",
+            subtitle: "ToDo List",
+            description: "Online To-Do List featuring filters and dark mode, developed using JavaScript. The application retrieves locales from a JSON file responsible for storing task information. It implements a simple CRUD system, allowing users to create, view, update, and delete tasks, as well as manage their status between completed and in progressThe system works as a vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The plataform features RESTful API architecture, with JWT authentication for registered user, as well as cloud storage using Cloudinary API",
         },
         animeList: {
             title: "Anime List",
             subtitle: "Anime Catalog Manager",
-            description: "C++ Anime catalog developed using a purely declared double-linked list. The project features CRUD operations, shows specific sorted/filtered intervals, and a save changes option.",
+            description: "C++ Anime catalog developed using a purely declared double-linked list. The project features CRUD operations, shows specific sorted/filtered intervals, and a save changes option",
         }
     },
     home: {

@@ -5,6 +5,7 @@
     :target="!isButton ? target : undefined"
     :rel="target === '__blank' ? 'external' : 'internal'"
     class="icon-wrapper"
+    :class="reverseClr ? 'reverse' : ''"
     v-html="icon"
   >
   </component>
@@ -27,11 +28,16 @@
 
     cursor: pointer;
     width: fit-content;
-    transition: 0.2s ease;
+    transition: 0.2s cubic-bezier(1, -0.56, 0.33, 0.94);
   }
   .icon-wrapper:hover{
     background: var(--cream-200);
     transform: scale(1.1);
+  }
+
+  .icon-wrapper.reverse{
+    background: var(--slate-800);
+    color: var(--cream-100);
   }
 
   .icon-wrapper :deep(svg) {
@@ -39,11 +45,7 @@
     height: v-bind(size);
   }
 
-  .footer .icon-wrapper{
-    background: var(--slate-900);
-    color: var(--cream-100);
-  }
-  .reverse .icon-wrapper:hover{
+  .icon-wrapper.reverse:hover{
     background: var(--slate-700);
   }
 
@@ -55,12 +57,16 @@
     background: var(--slate-800);
   }
 
-  .dark-theme .footer .icon-wrapper{
-    background: var(--cream-300);
+  .dark-theme .reverse .icon-wrapper:hover{
+    background: var(--cream-200);
+  }
+
+  .dark-theme .icon-wrapper.reverse{
+    background: var(--cream-100);
     color: var(--slate-800);
   }
 
-  .dark-theme .reverse .icon-wrapper:hover{
+  .dark-theme .icon-wrapper.reverse:hover{
     background: var(--cream-200);
   }
 </style>
@@ -80,6 +86,10 @@
     link: {
       type: String,
       default: '#',
+    },
+    reverseClr: {
+      type: Boolean,
+      default: false,
     },
     target: {
       type: String,

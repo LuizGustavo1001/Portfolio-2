@@ -2,7 +2,9 @@
   <!-- Footer -->
   <footer class="footer reverse">
     <div class="container flex-05 flex-column" style="gap: 2em">
+      <!-- Top Div -->
       <div class="top flex-05 flex-wrap justify-between" style="gap: 2em">
+        <!-- Left -->
         <div class="left flex-05 flex-column">
           <div class="flex-05 flex-column" style="gap: 0">
             <h1 class="medium-weight"><strong>Luiz Gustavo</strong> <br> de Almeida Lopes</h1>
@@ -24,10 +26,12 @@
                      :icon="personalLinks[link].icon"
                      :link="personalLinks[link].href"
                      size="25px"
+                     :reverseClr="true"
             />
           </nav>
         </div>
 
+        <!-- Right -->
         <div class="right flex-05 justify-between flex-wrap" style="gap: 2em">
           <nav v-for="section in footer.section" :key="section.id" class="flex-05 flex-column">
             <h2>{{ $t(`footer.section.${section.id}.title`) }}</h2>
@@ -42,6 +46,7 @@
 
       <hr>
 
+      <!-- Bottom Div -->
       <div class="bottom">
         <span class="text-muted"> {{ $t(`footer.thanks`) }}</span>
       </div>

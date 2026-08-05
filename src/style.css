@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Lexend:wght@100..900&display=swap');
 :root{
     --slate-900: #282827;
     --slate-800: #3C3B3A;
@@ -34,7 +34,7 @@
 
     --radial-gradient: radial-gradient(transparent, black);
 
-    --font: 'Sora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-styling: "Funnel Display", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -105,9 +105,18 @@ a{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.main-section{
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.section-box{
     min-height: calc(100dvh - 100px);
     padding: 1em;
+}
+
+.text-justified{
+    text-align: justify;
 }
 
 .light-weight{
@@ -185,6 +194,32 @@ a{
     color: var(--slate-600);
 }
 
+.section-box .container{
+    width: calc(100dvw - 1em);
+    max-width: 1500px;
+
+    padding: 2em 1em;
+
+    animation: fade-in-section-box 0.75s cubic-bezier(.45,-0.04,0,.95);
+}
+
+
+@keyframes fade-in-section-box{
+    from{
+        opacity: 0;
+        transform: translateY(10dvh) scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes opacity {
+    0%{ opacity: 0 }
+    50%{ opacity: 1 }
+    100%{ opacity: 0 }
+}
 
 
 /* DARK MODE */

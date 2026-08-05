@@ -1,12 +1,13 @@
 <template>
   <!-- Header -->
   <header class="w-full">
-    <div class="content flex-05 align-center w-full"><!-- Left Content -->
+    <div class="content flex-05 align-center w-full">
+      <!-- Logo -->
       <div class="flex-05 align-center flex-grow-1">
         <Icon :icon="icons.logo" size="45px" class="icon"/>
       </div>
 
-      <!-- Right Content -->
+      <!-- Sidebar Icon -->
       <IconBtn :icon="icons.sidebar" tag="button" size="25px" id="sidebar-toggle-btn" @click="toggleAside"/>
     </div>
   </header>

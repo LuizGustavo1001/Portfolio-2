@@ -56,7 +56,7 @@ export default {
         dictionary: {
             title: "Dicionário de Estudos",
             subtitle: "Plataforma de Gerenciamento",
-            description: "O sistema funciona como gerenciador de vocabulário com foco em estudantes e pesquisadores, separando termos em pastas, sendo possível filtrar e realizar operações do tipo CRUD para cada um deles. A plataforma conta com uma arquitetura de API RESTful, com autenticação JWT para cada usuário cadastrado, contando com armazenamento na nuvem utilizando Cloudinary API",
+            description: "Gerenciador de vocabulário com foco em estudantes e pesquisadores, separando termos em pastas, sendo possível filtrar e realizar operações do tipo CRUD para cada um deles. A plataforma conta com uma arquitetura de API RESTful, com autenticação JWT para cada usuário cadastrado, contando com armazenamento na nuvem utilizando Cloudinary API",
         },
         acai: {
             title: "Projeto Açaí 2.0",
@@ -65,7 +65,7 @@ export default {
         },
         todo: {
             title: "Lista de Tarefas",
-            subtitle: "",
+            subtitle: "Lista de Tarefas",
             description: "Lista de tarefas online contendo filtros e tema escuro utilizando JavaScript. A aplicação recebe dados a partir de um arquivo JSON, responsável por armazenar informações sobre cada tarefa. Implementa um CRUD simples, permitindo criar, visualizar, atualizar e remover tarefas, além de gerenciar seus estados entre concluída e em andamento"
         },
         animeList: {

@@ -1,12 +1,14 @@
 <template>
   <!-- Contact Section -->
-  <section class="main-section flex-05 align-center justify-center">
+  <section class="section-box flex-05 align-center justify-center">
     <div class="container flex-05 flex-column align-center justify-between translucent">
+      <!-- Island -->
       <div class="island flex-05 align-center justify-between medium-weight">
         <span>{{ $t(`contact.island`)}}</span>
         <Icon :icon="icons.soundwaves"></Icon>
       </div>
 
+      <!-- Content -->
       <div class="container-body flex-05 flex-column align-center justify-between">
         <div class="title flex-05 flex-column align-center">
           <h1 class="line-overflow medium-weight">{{ $t(`contact.title.medium`) }} <strong>{{ $t(`contact.title.bold`) }} </strong>.</h1>
@@ -37,15 +39,19 @@
 </template>
 
 <style scoped>
-  .main-section{
-    animation: fade-in-upper 1s cubic-bezier(.45,-0.04,0,.95);
-  }
-  a{
-    text-decoration: none;
+  .container{
+    min-height: 800px;
+
+    gap: 2em;
+
+    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint03.webp") no-repeat center center ;
+    background-size: cover;
+    box-shadow: 0 5px 10px var(--shadow-bold);
+    border-radius: 16px;
   }
 
-  .title{
-    text-align: center;
+  a{
+    text-decoration: none;
   }
 
   .island{
@@ -65,30 +71,18 @@
     transform: scale(1.1);
   }
 
-  .container{
-    width: calc(100dvw - 1em);
-    max-width: 1500px;
-    min-height: 800px;
-
-    gap: 2em;
-
-    padding: 2em 1em;
-
-    background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint03.webp") no-repeat center center ;
-    background-size: cover;
-    box-shadow: 0 5px 10px var(--shadow-bold);
-    border-radius: 16px;
-  }
-
   .container-body{
     padding: 1em;
     gap: 2em;
     width: fit-content;
     background: var(--transparent-gradient);
     box-shadow: 0 0 5px var(--shadow);
-    border: 1.5px solid var(--transparent-border-30);
+    border: 1px solid var(--transparent-border-30);
     border-radius: 16px;
     backdrop-filter: blur(20px);
+  }
+  .container-body .title{
+    text-align: center;
   }
   .container-body .title h1{
     font-size: clamp(1.5em, 3dvw, 2em);
@@ -106,7 +100,7 @@
     background: var(--transparent-gradient);
     padding: 0.5em;
 
-    border: 1.5px solid var(--transparent-border-30);
+    border: 1px solid var(--transparent-border-30);
     border-radius: 8px;
 
     font-size: clamp(0.8em, 2dvw, 0.9em);
@@ -121,21 +115,10 @@
     background: var(--transparent-30);
     border-radius: 8px;
   }
-
-  @keyframes fade-in-upper{
-    from{
-      opacity: 0;
-      transform: translateY(10dvh) scale(0);
-    }
-    to{
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
 </style>
 
 <script setup>
   import { icons } from "/src/locales/icons.js"
+  import { personalLinks } from "/src/locales/portfolioConfig.js"
   import Icon from "/src/components/icon.vue"
-  import {personalLinks} from "/src/locales/portfolioConfig.js"
 </script>

@@ -1,10 +1,10 @@
 
 <template>
   <!-- Home Section -->
-  <section class="main-section flex-05 flex-column justify-center align-center relative">
-    <div class="content flex-05 flex-column align-center">
-      <div class="content-wrapper">
-
+  <section class="section-box flex-05 flex-column justify-center align-center relative">
+    <div class="container flex-05 flex-column align-center">
+      <div class="content">
+        <!-- Title -->
         <div class="title relative">
           <h1>Portfolio.</h1>
           <div class="markup absolute"></div>
@@ -25,6 +25,7 @@
         </div>
       </div>
 
+      <!-- Profile Picture -->
       <img class="pfp" src="/images/me.jpg" alt="Profile Picture"/>
     </div>
 
@@ -36,27 +37,23 @@
 </template>
 
 <style scoped>
-  .content{
-    width: calc(100dvw - 1em);
-    max-width: 1500px;
+  .container{
     padding: 1em 3em;
-
+    text-align: center;
     justify-content: center;
     gap: 2em;
 
-    animation: fade-in-upper 0.75s cubic-bezier(.45,-0.04,0,.95);
-
-    text-align: center;
+    animation: fade-in-home 0.75s cubic-bezier(.45,-0.04,0,.95);
   }
-  .content h1{
+  .container h1{
     font-size: clamp(3.8em, 8vw, 8em);
     letter-spacing: 0.5dvw;
     font-family: var(--font-styling);
   }
-  .content p{
+  .container p{
     font-size: clamp(1em, 2dvw, 1.2em);
   }
-  .content .pfp{
+  .container .pfp{
     width: 30dvw;
     min-width: 200px;
     max-width: 400px;
@@ -91,12 +88,12 @@
   }
 
   @media(min-width: 1024px){
-    .content{
+    .container{
       text-align: inherit;
       justify-content: space-between;
       flex-direction: row;
     }
-    .content-wrapper{
+    .content{
       width: fit-content;
     }
     .right{
@@ -110,12 +107,6 @@
     }
   }
 
-  @keyframes opacity {
-    0%{ opacity: 0 }
-    50%{ opacity: 1 }
-    100%{ opacity: 0 }
-  }
-
   @keyframes pfp{
     0%{ transform: rotate(0); }
     25%{ transform: rotate(7deg); }
@@ -123,7 +114,7 @@
     100%{ transform: rotate(0); }
   }
 
-  @keyframes fade-in-upper{
+  @keyframes fade-in-home{
     from{
       opacity: 0;
       transform: rotate(7.5deg) translateY(10dvh);
@@ -145,6 +136,6 @@
 </style>
 
 <script setup>
-  import Icon from "/src/components/icon.vue"
   import { icons } from "/src/locales/icons.js"
+  import Icon from "/src/components/icon.vue"
 </script>
