@@ -55,7 +55,7 @@ export default {
         repository: "Repository",
         dictionary: {
             title: "Studies Dictionary",
-            subtitle: "Management Plafatorm",
+            subtitle: "Management Platform",
             description: "The system works as a vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The platform features RESTful API architecture, with JWT authentication for registered users, as well as cloud storage using the Cloudinary API",
         },
         acai: {
@@ -170,7 +170,7 @@ export default {
     },
     sidebar: {
         resume: "View Resume",
-        language: "Languange - English",
+        language: "Language - English",
         lightTheme: "Theme - Light",
         darkTheme: "Theme - Dark",
         sections: {

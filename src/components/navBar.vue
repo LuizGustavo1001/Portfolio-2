@@ -1,4 +1,5 @@
 <template>
+  <!-- Main Nav Bar -->
   <nav class="flex-05" style="gap: 1em;">
     <button v-for="item in navbar.items"
             :key="item.id"

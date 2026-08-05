@@ -1,4 +1,5 @@
 <template>
+  <!-- About Me Section -->
   <section class="main-section flex-05 align-center justify-center">
     <div class="container flex-05 justify-center translucent relative">
       <div class="background-text absolute">
@@ -63,7 +64,7 @@
 
                   <div class="flex-05 flex-column" style="gap: 0;">
                     <h3>{{ skill.name }}</h3>
-                    <p>{{ $t(`skills.content.${skill.id}.category`) }}</p>
+                    <p class="text-muted medium-weight">{{ $t(`skills.content.${skill.id}.category`) }}</p>
                   </div>
                 </div>
               </template>
@@ -74,7 +75,7 @@
 
                   <div class="flex-05 flex-column" style="gap: 0.3em">
                     <h3>{{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.title`) }}</h3>
-                    <p class="text-muted">
+                    <p class="text-muted medium-weight">
                       {{ $tm(`aboutMe.sections.${section.id}.content.${item.id}.subtitle`) }}
 
                       <span v-if="$t(`aboutMe.sections.${section.id}.content.${item.id}.period`)">
@@ -91,6 +92,7 @@
                        rel="noopener noreferrer"
                        target="_blank"
                        style="width: fit-content"
+                       class="text-muted medium-weight"
                     >
                       Certificate
                     </a>
@@ -139,7 +141,7 @@
 
     background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint04.webp") no-repeat center center ;
     background-size: cover;
-    box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
+    box-shadow: 0 5px 10px var(--shadow-bold);
     border-radius: 16px;
   }
 
@@ -147,8 +149,9 @@
     padding: 0.5em;
     max-width: 1200px;
 
-    background: radial-gradient(transparent, var(--transparent-30) 90%);
-    border: 2px solid var(--transparent-border-30);
+    background: var(--transparent-gradient);
+    box-shadow: 0 0 5px var(--shadow);
+    border: 1.5px solid var(--transparent-border-30);
     border-radius: 8px;
     backdrop-filter: blur(20px);
 
@@ -195,7 +198,8 @@
 
   .content-panel{
     padding: 1em;
-    background: var(--transparent-30);
+    background: var(--transparent-gradient);
+    border: 1.5px solid var(--transparent-border-20);
     border-radius: 8px;
 
     max-height: 100%;
@@ -208,25 +212,25 @@
     font-size: clamp(1.5em, 3dvw, 1.8em);
     padding-bottom: 0.2em;
 
-    border-bottom: 4px dashed var(--transparent-border-30);
+    border-bottom: 3px dashed var(--transparent-border-30);
   }
   
   .content-panel-animation{
-    animation: fade-in 0.5s  cubic-bezier(1, -0.3, 0.3, 0.94);
+    animation: fade-in 0.5s cubic-bezier(1, -0.3, 0.3, 0.94);
   }
 
   .content{
     overflow: auto;
   }
   .content h3{
-    font-size: 1em;
+    font-size: clamp(0.9em, 2dvw, 1em);
   }
   .content p{
-    font-size: 0.9em;
+    font-size: clamp(0.8em, 1.5dvw, 0.9em);
   }
   .content .paragraph{
     text-align: justify;
-    font-size: clamp(1em, 2vw, 1.1em);
+    font-size: clamp(0.9em, 2vw, 1.1em);
     word-spacing: 5px;
 
     line-height: 1.7em;

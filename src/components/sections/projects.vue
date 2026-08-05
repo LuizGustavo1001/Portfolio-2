@@ -1,4 +1,5 @@
 <template>
+  <!-- Latest Projects Section -->
   <section class="main-section flex-05 justify-center align-center relative">
     <div class="container flex-05 flex-column justify-between align-center" style="gap: 1em;">
       <div class="title flex-05 flex-column">
@@ -34,58 +35,6 @@
         </li>
       </ul>
     </div>
-
-    <div class="expanded-project">
-      <div class="expanded-content flex-05 flex-column" style="gap: 1em;">
-        <div class="title">
-          <p v-if="selectedProject.subtitle"
-             class="medium-weight text-muted">
-            {{ selectedProject.subtitle }}
-          </p>
-          <h3>{{ selectedProject.title }}</h3>
-        </div>
-
-        <div class="description flex-grow-1" style="font-size: clamp(0.9em, 1.5dvw, 1.1em)">
-          <p>{{ selectedProject.description }}.</p>
-        </div>
-
-        <ul class="stacks flex-05 flex-wrap">
-           <li v-for="stack in selectedProject.stacks"> {{ stack }} </li>
-        </ul>
-
-        <div class="links flex-05 flex-column" style="gap: 1em;">
-          <ActionButton
-              v-if="selectedProject.demoLink"
-              tag="a"
-              :link="selectedProject.demoLink"
-              :leftIcon="icons.code"
-              :label="$t(`projects.demo`)"
-              :reverseClr="true" class="w-full"
-          />
-
-          <ActionButton
-              v-if="selectedProject.repository"
-              tag="a"
-              :link="selectedProject.repository"
-              :leftIcon="icons.github"
-              :label="$t(`projects.repository`)"
-              class="w-full"
-          />
-        </div>
-      </div>
-
-      <div class="img" :style="{ '--background': selectedProject.image }"></div>
-
-      <IconBtn
-          tag="button"
-          :icon="icons.closeFull"
-          class="absolute close-expanded"
-          havePadding= 0,
-          padding="8px"
-          @click="closeExpandedProject"
-      />
-    </div>
-
   </section>
 </template>
 
@@ -202,59 +151,6 @@
   }
 
 
-  .expanded-project{
-    position: absolute;
-    inset: 0;
-
-    width: calc(100dvw - 3em);
-    max-width: 1500px;
-
-    height: calc(100dvh - 3em);
-    max-height: 800px;
-    margin: auto;
-
-    border-radius: 16px;
-    padding: 1em;
-
-    background: var(--white);
-    box-shadow: 0 0 20px rgb(0 0 0 / 0.2);
-
-    z-index: 5;
-
-    /*display: v-bind(expandedDisplay);*/
-    display: grid;
-    grid-template-rows: auto 1fr;
-    flex-direction: column-reverse;
-    gap: 1em;
-
-    animation: fade-in 1s ease-in-out;
-  }
-  .expanded-project .img{
-    background: var(--background) no-repeat top left;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-
-    border-radius: 16px;
-  }
-  .expanded-project .title h3{
-    font-size: clamp(1.5em, 3dvw, 1.8em);
-  }
-
-  .expanded-project .stacks li{
-    padding: 0.3em;
-    background: var(--white);
-    box-shadow: 4px 4px 5px var(--lighter-shadow);
-    font-size: 0.9em;
-    border-radius: 8px;
-  }
-
-  .close-expanded{
-    left: 1em;
-    top: 1em;
-    border-radius: 50%;
-  }
-
   @keyframes fade-in{
     from{
       opacity: 0;
@@ -286,15 +182,6 @@
     .title .action-button{
       width: fit-content;
     }
-    .expanded-project{
-      display: v-bind(expandedDisplay);
-      grid-template-rows: initial;
-      grid-template-columns: 350px 1fr;
-      border-radius: 32px;
-    }
-    .expanded-content{
-      padding-top: 2em;
-    }
   }
 
 </style>
@@ -313,50 +200,4 @@
   const emits = defineEmits(["toggleOverlay"])
 
   const expandedDisplay = ref("none")
-
-  const expandProject = (projectId) => {
-    const project = projects[projectId]
-
-    if(!project) return
-
-    expandedDisplay.value = "grid"
-
-    selectedProject.value = {
-      title: t(`projects.${projectId}.title`),
-      subtitle: t(`projects.${projectId}.subtitle`),
-      description: t(`projects.${projectId}.description`),
-      stacks: project.stacks,
-      demoLink: project.demo,
-      repository:  project.repository,
-      image: project.href
-    }
-
-    emits("toggleOverlay")
-  }
-
-  const closeExpandedProject = () => {
-    selectedProject.value = {
-      title: "",
-      subtitle: "",
-      description: "",
-      stacks: [],
-      demoLink: "",
-      repository: "",
-      image: ""
-    }
-
-    expandedDisplay.value = "none"
-
-    emits("toggleOverlay")
-  }
-
-  const selectedProject = ref({
-    title: "",
-    subtitle: "",
-    description: "",
-    stacks: [],
-    demoLink: "",
-    repository: "",
-    image: ""
-  })
 </script>

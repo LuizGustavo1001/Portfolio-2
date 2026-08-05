@@ -1,4 +1,5 @@
 <template>
+  <!-- Contact Section -->
   <section class="main-section flex-05 align-center justify-center">
     <div class="container flex-05 flex-column align-center justify-between translucent">
       <div class="island flex-05 align-center justify-between medium-weight">
@@ -36,9 +37,13 @@
 </template>
 
 <style scoped>
+  .main-section{
+    animation: fade-in-upper 1s cubic-bezier(.45,-0.04,0,.95);
+  }
   a{
     text-decoration: none;
   }
+
   .title{
     text-align: center;
   }
@@ -48,7 +53,7 @@
     padding: 0.8em;
 
     border-radius: 12px;
-    box-shadow: 0 4px 10px var(--transparent-30);
+    box-shadow: 0 0 10px var(--shadow-bold);
 
     transition: 0.3s cubic-bezier(1, -0.56, 0.33, 0.94);
 
@@ -71,7 +76,7 @@
 
     background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint03.webp") no-repeat center center ;
     background-size: cover;
-    box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
+    box-shadow: 0 5px 10px var(--shadow-bold);
     border-radius: 16px;
   }
 
@@ -79,8 +84,9 @@
     padding: 1em;
     gap: 2em;
     width: fit-content;
-    background: radial-gradient(transparent, var(--transparent-30) 90%);
-    border: 2px solid var(--transparent-border-30);
+    background: var(--transparent-gradient);
+    box-shadow: 0 0 5px var(--shadow);
+    border: 1.5px solid var(--transparent-border-30);
     border-radius: 16px;
     backdrop-filter: blur(20px);
   }
@@ -97,10 +103,10 @@
   }
 
   .content .item{
-    background: var(--transparent-30);
+    background: var(--transparent-gradient);
     padding: 0.5em;
 
-    border: 2px solid var(--transparent-border-30);
+    border: 1.5px solid var(--transparent-border-30);
     border-radius: 8px;
 
     font-size: clamp(0.8em, 2dvw, 0.9em);
@@ -114,6 +120,17 @@
   .content .item .icon{
     background: var(--transparent-30);
     border-radius: 8px;
+  }
+
+  @keyframes fade-in-upper{
+    from{
+      opacity: 0;
+      transform: translateY(10dvh) scale(0);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 </style>
 

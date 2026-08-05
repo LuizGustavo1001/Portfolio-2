@@ -1,4 +1,5 @@
 <template>
+  <!-- Header -->
   <header class="w-full">
     <div class="content flex-05 align-center w-full"><!-- Left Content -->
       <div class="flex-05 align-center flex-grow-1">

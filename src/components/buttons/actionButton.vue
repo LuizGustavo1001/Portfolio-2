@@ -44,7 +44,7 @@
 
     background: var(--slate-800);
     color: var(--cream-100);
-    box-shadow: 0 4px 5px var(--lighter-shadow);
+    box-shadow: 0 10px 15px var(--lighter-shadow);
     font-weight: bolder;
     font-size: 1.1em;
 
@@ -102,7 +102,7 @@
   .dark-theme .action-btn{
     background: var(--cream-100);
     color: var(--slate-900);
-    box-shadow: 0 4px 5px var(--shadow);
+    box-shadow: 0 4px 20px var(--shadow);
   }
 
   .dark-theme .action-btn.reverse{
