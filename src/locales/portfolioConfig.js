@@ -36,28 +36,28 @@ export const personalLinks = {
 export const projects = [
     {
         id: "dictionary",
-        href: "url(/public/images/dicionario.png)",
+        href: "url(/images/dicionario.png)",
         stacks: ["Node.js", "Javascript", "Docker", "npm", "JWT", "Sass", "Express.js", "MySQL", "Figma", "Cloudinary API", "RESTful API"],
         repository: "https://github.com/LuizGustavo1001/Dicionario_Estudos",
         demo: ""
     },
     {
         id: "acai",
-        href: "url(/public/images/acai.webp)",
+        href: "url(/images/acai.webp)",
         stacks: ["PHP OOP", "MySQL", "HTML5", "CSS3", "Cloudinary API", "Composer", "Google Cloud API", "Figma"],
         repository: "https://github.com/LuizGustavo1001/Projeto-Acai-2.0",
         demo: ""
     },
     {
         id: "todo",
-        href: "url(/public/images/todo.webp)",
+        href: "url(/images/todo.webp)",
         stacks: ["JavaScript", "JSON", "Node.js", "Scrapping", "CRUD"],
         repository: "https://github.com/LuizGustavo1001/TODO-WebPage-JS",
         demo: "https://vercel-todo-list-js.vercel.app/"
     },
     {
         id: "animeList",
-        href: "url(/public/images/cpp.png)",
+        href: "url(/images/cpp.png)",
         stacks: ["C++", "CSV Scrapping"],
         repository: "https://github.com/LuizGustavo1001/Anime-Catalog-in-cpp",
         demo: ""
