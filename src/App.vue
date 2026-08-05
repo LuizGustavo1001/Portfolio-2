@@ -110,13 +110,10 @@
 </script>
 
 <template>
-  <!-- Overlay -->
   <Overlay :class="overlayIsOpen ? 'active' : ''"/>
 
-  <!-- Main Nav Bar -->
   <NavBar/>
 
-  <!-- Sidebar -->
   <Sidebar
       @toggle-language="handleToggleLanguage"
       @toggle-theme="handleToggleTheme"
@@ -127,22 +124,16 @@
   <Header @toggle-aside="handleToggleAside"/>
 
   <main>
-    <!-- Home Section -->
     <Home id="home"/>
 
-    <!-- About Me Section -->
     <AboutMe id="aboutMe"/>
 
-    <!-- Latest Projects Section -->
-    <Projects id="projects" @toggleOverlay="toggleOverlay()"/>
+    <Projects id="projects"/>
 
-    <!-- Contact Section -->
     <Contact id="contact"/>
   </main>
 
   <Footer/>
-
-  <footer></footer>
 
   <!-- Empty State Container -->
   <!--

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Sora:wght@100..800&display=swap');
 :root{
     --slate-900: #282827;
     --slate-800: #3C3B3A;
@@ -14,20 +13,29 @@
 
     --white: #FFFFFF;
     --black: #000000;
+    --black-040: rgb(0 0 0 / 0.4);
+    --black-030: rgb(0 0 0 / 0.3);
+    --black-020: rgb(0 0 0 / 0.2);
+    --black-010: rgb(0 0 0 / 0.1);
+    --black-005: rgb(0 0 0 / 0.05);
+
     --grey: #C2C2C2;
 
     --transparent-30: rgb(0 0 0 / 0.3);
     --transparent-border-50: rgb(219 219 219 / 0.5);
     --transparent-border-30: rgb(219 219 219 / 0.3);
+    --transparent-gradient: linear-gradient(277.8deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
     --transparent-border-20: rgb(219 219 219 / 0.2);
 
-    --lighter-shadow: rgb(0 0 0 / 0.05);
-    --light-shadow: rgb(0 0 0 / 0.1);
-    --shadow: rgb(0 0 0 / 0.2);
+    --lighter-shadow: var(--black-005);
+    --light-shadow: var(--black-010);
+    --shadow: var(--black-030);
+    --shadow-bold: var(--black-040);
 
     --radial-gradient: radial-gradient(transparent, black);
 
     --font: 'Sora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-styling: "Funnel Display", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 *{
@@ -77,7 +85,7 @@ a{
     position: absolute;
 }
 
-.translucent{
+.translucent{ box-shadow: 0 4px 5px var(--lighter-shadow);
     color: var(--white);
 }
 .translucent a{
@@ -107,6 +115,9 @@ a{
 }
 .medium-weight{
     font-weight: 500;
+}
+.bold-weight{
+    font-weight: 700;
 }
 
 .text-center{
@@ -199,3 +210,14 @@ a{
 .dark-theme .reverse .text-muted{
     color: var(--slate-700);
 }
+
+.dark-theme .translucent{
+    color: var(--white);
+}
+.dark-theme .translucent a{
+    color: var(--white);
+}
+.dark-theme .translucent .text-muted{
+    color: var(--grey);
+}
+

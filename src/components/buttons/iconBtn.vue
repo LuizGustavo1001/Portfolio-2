@@ -41,6 +41,7 @@
 
   .footer .icon-wrapper{
     background: var(--slate-900);
+    color: var(--cream-100);
   }
   .reverse .icon-wrapper:hover{
     background: var(--slate-700);

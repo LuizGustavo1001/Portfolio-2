@@ -1,4 +1,5 @@
 <template>
+  <!-- Footer -->
   <footer class="footer reverse">
     <div class="container flex-05 flex-column" style="gap: 2em">
       <div class="top flex-05 flex-wrap justify-between" style="gap: 2em">
@@ -52,6 +53,8 @@
   footer{
     padding: 2em;
     background: var(--slate-800);
+
+    margin-top: 256px;
   }
 
   a{

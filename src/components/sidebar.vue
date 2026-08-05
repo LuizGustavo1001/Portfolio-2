@@ -1,4 +1,5 @@
 <template>
+  <!-- Sidebar -->
   <aside class="sidebar flex-05 flex-column">
     <!-- Main Sidebar Content -->
     <div class="flex-grow-1 flex-05 flex-column" style="gap: 2em;">

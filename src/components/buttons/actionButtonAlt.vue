@@ -23,7 +23,7 @@
 
     <!-- Right Icon -->
     <slot name="rightIcon">
-      <Icon v-if="rightIcon" :icon="rightIcon" />
+      <Icon v-if="rightIcon" :icon="rightIcon" class="text-muted" />
     </slot>
   </component>
 </template>

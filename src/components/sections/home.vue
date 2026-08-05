@@ -1,5 +1,6 @@
 
 <template>
+  <!-- Home Section -->
   <section class="main-section flex-05 flex-column justify-center align-center relative">
     <div class="content flex-05 flex-column align-center">
       <div class="content-wrapper">
@@ -9,8 +10,8 @@
           <div class="markup absolute"></div>
         </div>
 
-        <div class="sub-title flex-05 flex-column">
-          <p>- <strong>Luiz Gustavo</strong> de Almeida Lopes -</p>
+        <div class="sub-title flex-05 flex-column text-muted">
+          <p><strong>Luiz Gustavo</strong> de Almeida Lopes</p>
 
           <i18n-t keypath="home.role"
                   tag="p"
@@ -50,6 +51,7 @@
   .content h1{
     font-size: clamp(3.8em, 8vw, 8em);
     letter-spacing: 0.5dvw;
+    font-family: var(--font-styling);
   }
   .content p{
     font-size: clamp(1em, 2dvw, 1.2em);
@@ -74,9 +76,9 @@
   .markup{
     width: 50%;
     height: 40%;
-    background: var(--cream-300);
+    background: var(--cream-200);
 
-    bottom: 20px;
+    bottom: 10px;
     right: 0;
     z-index: -1;
   }
@@ -99,6 +101,12 @@
     }
     .right{
       text-align: right;
+    }
+  }
+
+  @media(min-width: 1300px){
+    .markup{
+      bottom: 25px;
     }
   }
 
@@ -128,7 +136,7 @@
 
   /* DARK MODE */
   .dark-theme .markup{
-    background: var(--slate-700);
+    background: var(--slate-800);
   }
 
   .dark-theme .scroll-indicator{

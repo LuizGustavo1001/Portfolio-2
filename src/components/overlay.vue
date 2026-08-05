@@ -1,4 +1,7 @@
+<script setup>
+</script>
 <template>
+  <!-- Overlay -->
   <div id="overlay"></div>
 </template>
 
