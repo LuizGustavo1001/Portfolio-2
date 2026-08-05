@@ -100,6 +100,7 @@
     return new URL(path, import.meta.url).href
   }
 
+
   onMounted(() => {
     window.addEventListener('click', handleClickOutside)
   })

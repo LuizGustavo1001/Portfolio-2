@@ -1,11 +1,14 @@
 <template>
   <!-- Latest Projects Section -->
-  <section class="main-section flex-05 justify-center align-center relative">
-    <div class="container flex-05 flex-column justify-between align-center" style="gap: 1em;">
-      <div class="title flex-05 flex-column">
-        <h1>{{ $t("projectsSection.title.medium") }} <br> <strong>{{ $t("projectsSection.title.bold") }}</strong>.</h1>
-
-        <p class="text-muted">{{ $t('projectsSection.subtitle') }}.</p>
+  <section class="section-box flex-05 align-center  justify-center">
+    <div class="container flex-05 flex-column" style="gap: 2em;">
+      <!-- Section Title -->
+      <div class="section-title flex-05 justify-between flex-wrap">
+        <h1 class="medium-weight uppercase">
+          {{ $t("projectsSection.title.medium") }}
+          <br>
+          <strong>{{ $t("projectsSection.title.bold") }}</strong>.
+        </h1>
 
         <ActionButton
             tag="a"
@@ -17,20 +20,59 @@
         />
       </div>
 
-      <ul class="content flex-05 flex-column">
+      <!-- Projects Container -->
+      <ul class="projects-container">
         <li v-for="project in projects"
             :key="project.id"
-            @click="expandProject(project.id)"
-            class="project flex-05 relative"
-            :style="{ '--background': project.href }"
+            class="project flex-05 flex-column"
+            :style="{ '--image': project.href ? project.href : '' }"
         >
-          <div class="project-title translucent medium-weight line-overflow">
-            <p class="text-muted line-overflow"> {{ $t(`projects.${project.id}.subtitle`) }}</p>
-            <h2 class="line-overflow">{{ $t(`projects.${project.id}.title`) }}</h2>
+          <div class="flex-05 align-center">
+            <p class="project-subtitle text-muted medium-weight flex-grow-1 uppercase"> {{ $t(`projects.${project.id}.subtitle`) }} </p>
+            <span class="actions flex-05" style="justify-content: flex-end">
+              <IconBtn
+                  v-if="project.demo"
+                  tag="a"
+                  :link="project.demo"
+                  :icon="icons.website"
+                  class="action-button"
+                  :reverseClr="true"
+              />
+
+              <IconBtn
+                  v-if="project.repository"
+                  tag="a"
+                  :link="project.repository"
+                  :icon="icons.github"
+                  class="action-button"
+                  :reverseClr="true"
+              />
+            </span>
           </div>
 
-          <div class="expand-icon flex-05 align-center justify-center absolute">
-            <Icon :icon="icons.expandScreen" size="30px"></Icon>
+          <!-- Project Title -->
+          <div class="flex-05 flex-column flex-grow-1">
+            <h2 class="project-title">
+              {{ $t(`projects.${project.id}.title`) }}
+            </h2>
+
+            <p class="project-desc text-muted text-justified flex-grow-1">
+              {{ $t(`projects.${project.id}.description`) }}.
+            </p>
+          </div>
+
+          <!-- Project Stacks + Image -->
+          <div class="flex-05 flex-column">
+            <ul class="stacks flex-05 align-center flex-wrap">
+              <li v-for="stack in project.stacks"
+                  :key="stack.id"
+                  class="medium-weight text-muted"
+              >
+                {{ stack }}
+              </li>
+            </ul>
+
+            <div class="project-image relative"></div>
           </div>
         </li>
       </ul>
@@ -40,164 +82,101 @@
 
 <style scoped>
   .container{
-    width: calc(100dvw - 1em);
-    max-width: 1500px;
-    height: 100dvh;
-    max-height: 850px;
-
-    padding: 2em 1em;
+    padding: 0;
   }
 
-  .container .title h1{
-    font-size: clamp(2.5em, 6dvw, 5.5em);
-    text-transform: uppercase;
-    font-weight: normal;
+  .section-title{
+    align-items: flex-end;
   }
-  .container .title .action-button{
-    width: 100%;
-    margin-top: 0.5em;
-    align-self: flex-end;
+  .section-title h1{
+    font-size: clamp(3em, 4dvw, 4em);
   }
 
-  .content{
-    background: url("/images/paint01.webp") no-repeat bottom;
-    background-size: cover;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 0.62);
-
-    width: 100%;
-    max-width: 700px;
-    max-height: 100%;
-    padding: 2em;
-
-    overflow: auto;
-    gap: 1em;
+  .projects-container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 550px), 1fr));
+    gap: 2em;
   }
 
   .project{
-    justify-content: flex-start;
-    align-items: flex-end;
+    background: var(--cream-200);
+    padding: 1em 1em 0 1em;
 
-    min-height: 300px;
-    max-height: 300px;
-    padding: 1em;
+    border: 1px solid var(--cream-400);
+
     border-radius: 16px;
-    overflow: hidden;
-    color: var(--white);
 
-    background: var(--background) no-repeat top left;
+    min-height: 550px;
+  }
+
+  .project .stacks li{
+    padding: 0.3em;
+    border-radius: 8px;
+
+    background: var(--cream-300);
+  }
+  .project .action-btn{
+    font-size: 0.9em;
+  }
+
+  .project-title{
+    font-size: 1.3em;
+  }
+
+  .project-subtitle{
+    font-size: clamp(0.8em, 2dvw, 0.9em);
+  }
+
+  .project-desc{
+    font-size: clamp(0.85em, 1.5dvw, 0.95em)
+  }
+
+  .project .stacks li{
+    font-size: clamp(0.8em, 1.5dvw, 0.9em);
+  }
+
+  .project-image{
+    height: 250px;
+    width: 100%;
+    background: var(--image) top left;
     background-size: cover;
 
-    cursor: pointer;
-    transition: 0.3s ease-out;
+    border: 1px solid var(--cream-400);
+    border-bottom: none;
+
+    border-radius: 16px 16px 0 0;
   }
-  .project::after{
+
+  /* DARK MODE */
+  .dark-theme .project{
+    background: var(--slate-800);
+    border-color: var(--slate-700);
+  }
+
+  .dark-theme .project .stacks li{
+    background: var(--slate-900);
+  }
+
+  .dark-theme .project-image{
+    border-color: var(--slate-700);
+
+    overflow: hidden;
+  }
+  .dark-theme .project-image::after{
     content: "";
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(to top, var(--slate-700), transparent 60%);
-    border-radius: 16px;
-
-    z-index: 1;
-    transition: 0.15s ease-out;
+    background: var(--black);
+    opacity: 0.15;
   }
-
-  .project .project-title,
-  .project .expand-icon{
-    z-index: 2;
-  }
-
-  .project:hover{
-    transform: scale(1.02);
-  }
-
-  .project:hover::after{
-    transform: translateY(15%);
-  }
-
-  .project .expand-icon{
-    top: 1em;
-    right: 1em;
-
-    background: var(--transparent-30);
-    padding: 0.5em;
-    backdrop-filter: blur(10px);
-    border-radius: 50%;
-
-    opacity: 0;
-    transform: scale(0);
-    transition: 0.3s ease-out;
-  }
-  .project:hover .expand-icon{
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .project .project-title{
-    transition: 0.3s ease-in-out;
-
-    text-transform: uppercase;
-  }
-  .project:hover .project-title{
-    padding-left: 1em;
-  }
-
-  .project .project-title h2{
-    font-size: clamp(1.5em, 3dvw, 2em);
-  }
-  .project .project-title p{
-    text-align: left;
-  }
-
-
-  @keyframes fade-in{
-    from{
-      opacity: 0;
-      transform: translateY(100%) scale(0);
-    }
-    to{
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-  @keyframes fade-out{
-    from{
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    to{
-      opacity: 0;
-      transform: translateY(100%) scale(0);
-    }
-  }
-
-  @media(min-width: 1024px){
-    .container{
-      flex-direction: row-reverse;
-    }
-    .container .title{
-      text-align: right;
-    }
-    .title .action-button{
-      width: fit-content;
-    }
-  }
-
 </style>
 
 <script setup>
-  import { ref } from "vue"
-  import { useI18n } from "vue-i18n"
   import { icons } from "/src/locales/icons.js"
   import { personalLinks, projects } from "/src/locales/portfolioConfig.js"
-  import Icon from "/src/components/icon.vue"
   import IconBtn from "/src/components/buttons/iconBtn.vue"
   import ActionButton from "/src/components/buttons/actionButton.vue"
-
-  const { t } = useI18n()
-
-  const emits = defineEmits(["toggleOverlay"])
-
-  const expandedDisplay = ref("none")
 </script>

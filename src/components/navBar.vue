@@ -95,11 +95,16 @@
 
 <script setup>
   import { ref, onMounted } from "vue"
+  import { gsap } from "gsap"
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
   import { navbar } from "/src/locales/portfolioConfig.js"
   import Icon from "/src/components/icon.vue"
 
   const selectedItem = ref(localStorage.getItem("selectedItemNavBar") ?? navbar.items[0].id)
-  const headerHeight = 75
+
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+  let isAnimating = false
 
   const toggleSelected = (newValue) => {
     const element = document.getElementById(newValue)
@@ -107,13 +112,22 @@
     if(element){
       localStorage.setItem("selectedItemNavBar", newValue)
       selectedItem.value = newValue
+      isAnimating = true
 
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.scrollY - headerHeight
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
+      gsap.to(window, {
+        duration: 0.8,
+        ease: "expo.inOut",
+        scrollTo: {
+          y: element,
+          autoKill: true,
+          offsetY: 100
+        },
+        onComplete: () => {
+          isAnimating = false
+        },
+        onInterrupt: () => {
+          isAnimating = false
+        }
       })
     }
   }

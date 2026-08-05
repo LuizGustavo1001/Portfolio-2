@@ -1,12 +1,13 @@
 <template>
   <!-- About Me Section -->
-  <section class="main-section flex-05 align-center justify-center">
+  <section class="section-box flex-05 align-center justify-center">
     <div class="container flex-05 justify-center translucent relative">
       <div class="background-text absolute">
         <span>{{ $t(`aboutMe.title.medium`) }} {{ $t(`aboutMe.title.bold`) }}</span>
       </div>
 
       <div class="container-body w-full">
+        <!-- Sidebar -->
         <nav class="sidebar flex-05 flex-column" role="navigation" aria-label="about me main navigation" style="gap: 1em;">
           <div class="flex-05 flex-column">
             <div class="flex-05 align-center">
@@ -36,6 +37,7 @@
           </menu>
         </nav>
 
+        <!-- Content -->
         <div class="content-panel flex-05 flex-column flex-grow-1">
           <div v-for="section in aboutMe.sections"
                 :key="section.id"
@@ -50,6 +52,7 @@
                      section.type === 'regular-list' ? ['flex-05', 'flex-column', 'regular-list'] : undefined
                   ]"
             >
+              <!-- Regular Text Section Type -->
               <template v-if="section.type === 'text'">
                 <template v-for="paragraph in $tm(`aboutMe.sections.${section.id}.content.paragraphs`)" :key="paragraph.tag">
                   <component :is="paragraph.tag ?? 'p'" :class="paragraph.classes ?? ''" class="paragraph">
@@ -58,6 +61,7 @@
                 </template>
               </template>
 
+              <!-- Grid List Section Type -->
               <template v-else-if="section.type === 'grid-list'">
                 <div v-for="skill in skills" :key="skill.id" class="grid-item flex-05 align-center">
                   <img :src="`/images/${skill.icon}`" :alt="skill.id">
@@ -69,6 +73,7 @@
                 </div>
               </template>
 
+              <!-- Flex List Section Type -->
               <template v-else-if="section.type === 'regular-list'">
                 <div v-for="item in section.content" :key="item.id" class="flex-05 align-center">
                   <div class="vertical-line"></div>
@@ -108,10 +113,6 @@
 </template>
 
 <style scoped>
-  .main-section{
-    animation: fade-in-upper 1s cubic-bezier(.45,-0.04,0,.95);
-  }
-
   .background-text{
     top: 0;
     left: 50%;
@@ -132,12 +133,8 @@
   }
 
   .container{
-    width: calc(100dvw - 1em);
-    max-width: 1500px;
     height: 100dvh;
     max-height: 750px;
-
-    padding: 2em 1em;
 
     background: radial-gradient(var(--transparent-30) 90%, transparent), url("/images/paint04.webp") no-repeat center center ;
     background-size: cover;
@@ -216,7 +213,7 @@
   }
   
   .content-panel-animation{
-    animation: fade-in 0.5s cubic-bezier(1, -0.3, 0.3, 0.94);
+    animation: fade-in-items 0.5s cubic-bezier(1, -0.3, 0.3, 0.94);
   }
 
   .content{
@@ -296,7 +293,7 @@
     }
   }
 
-  @keyframes fade-in{
+  @keyframes fade-in-items{
     from{
       opacity: 0;
       transform: translateY(100%);
@@ -304,17 +301,6 @@
     to{
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes fade-in-upper{
-    from{
-      opacity: 0;
-      transform: translateY(10dvh) scale(0);
-    }
-    to{
-      opacity: 1;
-      transform: translateY(0) scale(1);
     }
   }
 </style>
