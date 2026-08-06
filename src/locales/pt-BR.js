@@ -56,7 +56,7 @@ export default {
         dictionary: {
             title: "Dicionário de Estudos",
             subtitle: "Plataforma de Gerenciamento",
-            description: "Gerenciador de vocabulário com foco em estudantes e pesquisadores, separando termos em pastas, sendo possível filtrar e realizar operações do tipo CRUD para cada um deles. A plataforma conta com uma arquitetura de API RESTful, com autenticação JWT para cada usuário cadastrado, contando com armazenamento na nuvem utilizando Cloudinary API",
+            description: "Gerenciador de vocabulário com foco em estudantes e pesquisadores, separando termos em pastas, sendo possível filtrar e realizar operações do tipo CRUD para cada um deles. A plataforma conta com uma arquitetura de API RESTful, com autenticação JWT para cada usuário cadastrado, contando com armazenamento em nuvem utilizando Cloudinary API",
         },
         acai: {
             title: "Projeto Açaí 2.0",

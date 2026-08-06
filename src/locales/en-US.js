@@ -56,7 +56,7 @@ export default {
         dictionary: {
             title: "Studies Dictionary",
             subtitle: "Management Platform",
-            description: "Vocabulary manager focused on students and researchers who need a space to centralize their Knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The platform features RESTful API architecture, with JWT authentication for registered users, as well as cloud storage using the Cloudinary API",
+            description: "Vocabulary manager focused on students and researchers who need a space to centralize their knowledge, separating terms inside folders, allowing the user to filter and perform CRUD operations for each of them. The platform features RESTful API architecture, with JWT authentication for registered users, as well as cloud storage using the Cloudinary API",
         },
         acai: {
             title: "Açaí Project 2.0",
