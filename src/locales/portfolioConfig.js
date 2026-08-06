@@ -9,7 +9,7 @@ export const personalLinks = {
     },
     resume: {
         id: "resume",
-        href: "https://docs.google.com/document/d/1op5d-Fn95WI7BIFwsvRQbXM7azC-Y6sGe8w0lJGfleQ/edit?usp=drive_link",
+        href: "https://drive.google.com/drive/folders/1fGPZ3UlCj2dS8TwgPCCtXVZUbmM8z3sJ?usp=drive_link",
         value: "Portfolio",
         icon: icons.documentFilled,
     },
