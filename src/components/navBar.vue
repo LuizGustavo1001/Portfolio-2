@@ -101,7 +101,7 @@
   import { navbar } from "/src/locales/portfolioConfig.js"
   import Icon from "/src/components/icon.vue"
 
-  const selectedItem = ref(localStorage.getItem("selectedItemNavBar") ?? navbar.items[0].id)
+  const selectedItem = ref(navbar.items[0].id)
 
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
   let isAnimating = false
@@ -110,7 +110,6 @@
     const element = document.getElementById(newValue)
 
     if(element){
-      localStorage.setItem("selectedItemNavBar", newValue)
       selectedItem.value = newValue
       isAnimating = true
 
@@ -132,7 +131,32 @@
     }
   }
 
+  let context
+
   onMounted(() => {
     toggleSelected(selectedItem.value)
+
+    context = gsap.context(() => {
+      const mainSections = gsap.utils.toArray('.section-box')
+
+      mainSections.forEach(section => {
+        const containerInside = section.querySelector(".container")
+        const target = containerInside || section
+
+        gsap.fromTo(
+            target, {},
+            {
+              scrollTrigger: {
+                trigger: section,
+                start: "start 50%",
+                end: "bottom 80%",
+                toggleActions: "play none none reverse",
+                onEnter: () => toggleSelected(section.id),
+                onEnterBack: () => toggleSelected(section.id),
+              }
+            }
+        )
+      })
+    })
   })
 </script>

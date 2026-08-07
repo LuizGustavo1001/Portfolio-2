@@ -1,7 +1,7 @@
 <template>
   <!-- About Me Section -->
   <section class="section-box flex-05 align-center justify-center">
-    <div class="container flex-05 justify-center translucent relative">
+    <div class="container flex-05 justify-center translucent relative scrollTrigger">
       <div class="background-text absolute">
         <span>{{ $t(`aboutMe.title.medium`) }} {{ $t(`aboutMe.title.bold`) }}</span>
       </div>

@@ -199,10 +199,7 @@ a{
     max-width: 1500px;
 
     padding: 2em 1em;
-
-    animation: fade-in-section-box 0.75s cubic-bezier(.45,-0.04,0,.95);
 }
-
 
 @keyframes fade-in-section-box{
     from{

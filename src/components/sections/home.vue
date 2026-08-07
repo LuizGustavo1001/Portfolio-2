@@ -29,7 +29,7 @@
       <img class="pfp" src="/images/me.jpg" alt="Profile Picture"/>
     </div>
 
-    <div class="scroll-indicator flex-05 align-center absolute">
+    <div ref="scrollIndicator" class="scroll-indicator flex-05 align-center absolute">
       <Icon :icon="icons.swipeDown" size="30px"></Icon>
       <span aria-hidden="false">{{ $t("home.scrollLabel") }}</span>
     </div>
@@ -138,4 +138,43 @@
 <script setup>
   import { icons } from "/src/locales/icons.js"
   import Icon from "/src/components/icon.vue"
+  import {onMounted, onUnmounted, ref} from "vue"
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const scrollIndicator = ref(null)
+  let context
+
+  onMounted(async () => {
+    if(!scrollIndicator.value){
+      console.log('ASdad')
+    }
+
+    context = gsap.context(() => {
+      gsap.fromTo(
+          scrollIndicator.value,
+          {
+            display: "inherit"
+          },
+          {
+            display: "none",
+            duration: 0.75,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: scrollIndicator.value,
+              start: "top 50%",
+              toggleActions: "play none none reverse"
+            }
+          }
+      )
+    })
+    ScrollTrigger.refresh()
+  })
+
+  onUnmounted(() => {
+    if (context) context.revert()
+  })
+
 </script>
