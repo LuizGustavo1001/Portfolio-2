@@ -1,6 +1,10 @@
 <script setup>
-  import { ref, watch, onMounted, onUnmounted } from "vue"
+  import {ref, watch, onMounted, onUnmounted, nextTick} from "vue"
   import { useI18n } from 'vue-i18n'
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
 
   const { locale } = useI18n()
 
@@ -100,13 +104,50 @@
     return new URL(path, import.meta.url).href
   }
 
+  const container = ref(null)
+  let context
 
-  onMounted(() => {
+  onMounted(async () => {
     window.addEventListener('click', handleClickOutside)
+
+    await nextTick()
+
+    // scroll trigger main sections animation
+    context = gsap.context( () => {
+      const mainSections = gsap.utils.toArray('.scroll-trigger-section')
+
+      mainSections.forEach(section => {
+        const containerInside = section.querySelector(".container")
+        const target = containerInside || section
+
+        gsap.fromTo(
+            target,
+            {
+              opacity: 0,
+              scale: 0.5,
+            },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.75,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+              }
+            }
+        )
+      })
+    }, container.value)
+
+    ScrollTrigger.refresh()
   })
 
   onUnmounted(() => {
     window.removeEventListener('click', handleClickOutside)
+
+    if(context) context.revert()
   })
 </script>
 
@@ -127,11 +168,11 @@
   <main>
     <Home id="home"/>
 
-    <AboutMe id="aboutMe"/>
+    <AboutMe id="aboutMe" class="scroll-trigger-section"/>
 
-    <Projects id="projects"/>
+    <Projects id="projects" class="scroll-trigger-section"/>
 
-    <Contact id="contact"/>
+    <Contact id="contact" class="scroll-trigger-section"/>
   </main>
 
   <Footer/>

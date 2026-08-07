@@ -14,7 +14,7 @@
                                 :label="$t(`personalLinks.${item.id}`)"
                                 :rightIcon="icons.externalLink"
                                 :link="personalLinks[item.id].href"
-                                style="width: 100%"
+                                class="w-full"
               />
             </template>
 
@@ -23,10 +23,9 @@
                             :leftIcon="personalLinks[item.id].icon"
                             :label="$t(`sidebar.resume`)"
                             :link="personalLinks[item.id].href"
-                            style="width: 100%; justify-content: flex-start"
+                            style="justify-content: flex-start"
                             :right-icon="icons.externalLink"
-                            class="action-btn"
-                            @click="toggleLang"
+                            class="action-btn w-full"
               />
             </template>
 
@@ -34,8 +33,8 @@
               <ActionButton :leftIcon="icons.translate"
                             :right-icon="icons.switch"
                             :label="$t(`sidebar.language`)"
-                            style="width: 100%; justify-content: flex-start"
-                            class="reverse action-btn"
+                            style="justify-content: flex-start"
+                            class="reverse action-btn w-full"
                             @click="toggleLang"
               />
             </template>
@@ -44,8 +43,8 @@
               <ActionButton :leftIcon="props.theme === 'lightTheme'? icons.moonFilled : icons.sunFilled"
                             :right-icon="icons.switch"
                             :label="$t(`sidebar.${props.theme}`)"
-                            style="width: 100%; justify-content: flex-start"
-                            class="reverse action-btn"
+                            style="justify-content: flex-start"
+                            class="reverse action-btn w-full"
                             @click="toggleTheme"
               />
             </template>
@@ -55,7 +54,7 @@
     </div>
 
     <!-- Sidebar Footer -->
-    <span class="light-weight text-center text-muted footer">Luiz Gustavo de Almeida Lopes - Portfolio</span>
+    <span class="light-weight text-center text-muted footer">Luiz Gustavo de Almeida Lopes • Portfolio</span>
   </aside>
 </template>
 
